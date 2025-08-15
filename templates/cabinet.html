@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}Кабінет{% endblock %}
+
+{% block head %}
+<style>
+    .sidebar {
+        transition: all 0.3s ease;
+        min-width: 4rem;
+        height: calc(100vh - 80px); /* Учитываем высоту хедера */
+        overflow-y: auto; /* Добавляем прокрутку если контент не помещается */
+    }
+    
+    .sidebar:hover {
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-item {
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .nav-item:hover:not(.active) {
+        background-color: rgba(22, 163, 74, 0.1);
+    }
+    
+    .nav-item.active::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 60%;
+        background-color: #16a34a;
+        border-radius: 3px 0 0 3px;
+    }
+    
+    .logout-btn {
+        transition: all 0.2s ease;
+    }
+    
+    .logout-btn:hover {
+        background-color: #dc2626 !important;
+        transform: translateX(2px);
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    /* Мобильная версия */
+    @media (max-width: 1023px) {
+        .sidebar {
+            position: fixed;
+            left: -100%;
+            top: 80px; /* Учитываем высоту хедера */
+            bottom: 0;
+            z-index: 50;
+            width: 280px;
+            max-width: 80%;
+            padding-top: 1rem;
+        }
+        
+        .sidebar.open {
+            left: 0;
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            position: fixed;
+            left: 1rem;
+            top: 1rem;
+            z-index: 60;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 80px; /* Учитываем высоту хедера */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            display: none;
+        }
+        
+        .overlay.open {
+            display: block;
+        }
+    }
+    
+    /* Десктопная версия */
+    @media (min-width: 1024px) {
+        .sidebar {
+            position: sticky;
+            top: 80px; /* Фиксируем под хедером */
+            align-self: flex-start;
+            height: calc(100vh - 80px);
+        }
+        
+        .mobile-menu-btn,
+        .overlay {
+            display: none !important;
+        }
+    }
+    
+    /* Контейнер для кнопки выхода */
+    .logout-container {
+        margin-top: auto; /* Прижимаем к низу */
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-top: 1px solid #e5e7eb;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Mobile Menu Button -->
+<button id="mobileMenuBtn" class="mobile-menu-btn p-2 rounded-full bg-green-100 text-green-700 lg:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+</button>
+
+<!-- Overlay for mobile menu -->
+<div id="overlay" class="overlay"></div>
+
+<div class="flex min-h-[calc(100vh-80px)] relative">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar bg-white border-r border-gray-200 p-4 flex flex-col z-50 
+                          fixed lg:sticky left-0 top-[80px] h-[calc(100vh-80px)] transform -translate-x-full lg:transform-none transition-transform duration-300">
+        <h2 class="text-xl font-bold text-green-700 mb-6 hidden md:block truncate">
+            Кабінет <span class="text-green-600">{{ username }}</span>
+        </h2>
+        
+        <ul class="space-y-3 w-full">
+            <li>
+                <a href="{{ url_for('cabinet', tab='likes') }}" 
+                   class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg w-full 
+                          {{ 'active bg-green-50 text-green-700 font-medium' if active_tab == 'likes' else 'text-gray-700' }}">
+                    <span class="text-lg">❤️</span>
+                    <span class="md:inline">Обрані авто</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="{{ url_for('cabinet', tab='cart') }}" 
+                   class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg w-full 
+                          {{ 'active bg-green-50 text-green-700 font-medium' if active_tab == 'cart' else 'text-gray-700' }}">
+                    <span class="text-lg">🛒</span>
+                    <span class="md:inline">Кошик</span>
+                </a>
+            </li>
+    
+            {% if role == 'admin' %}
+            <li>
+                <a href="{{ url_for('cabinet', tab='likes_admin') }}" 
+                   class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg w-full 
+                          {{ 'active bg-green-50 text-green-700 font-medium' if active_tab == 'likes_admin' else 'text-gray-700' }}">
+                    <span class="text-lg">👥</span>
+                    <span class="md:inline">Лайки користувачів</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="{{ url_for('cabinet', tab='orders') }}" 
+                   class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg w-full 
+                          {{ 'active bg-green-50 text-green-700 font-medium' if active_tab == 'orders' else 'text-gray-700' }}">
+                    <span class="text-lg">📦</span>
+                    <span class="md:inline">Замовлення</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        
+        <!-- Кнопка выхода с отступом -->
+        <div class="logout-container">
+            <a href="{{ url_for('logout') }}" 
+               class="logout-btn flex items-center gap-3 px-3 py-2 rounded-lg w-full bg-red-500 text-white hover:shadow-md">
+                <span class="text-lg">🚪</span>
+                <span class="md:inline">Вийти</span>
+            </a>
+            
+            {% if role == 'admin' %}
+            <div class="mt-3 text-xs text-gray-500 md:block">
+                Адмін-панель
+            </div>
+            {% endif %}
+        </div>
+    </aside>
+    
+    <!-- Основной контент -->
+    <main class="flex-1 p-4 md:p-6 lg:p-8 bg-gray-50 min-h-[calc(100vh-80px)] overflow-y-auto">
+        {% if active_tab == 'likes' %}
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Обрані автомобілі</h2>
+                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    {{ liked_cars|length }} авто
+                </span>
+            </div>
+            
+            {% include 'partials/_liked_cars.html' %}
+        </div>
+        
+        {% elif active_tab == 'cart' %}
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Ваш кошик</h2>
+
+            </div>
+            
+            {% include 'partials/cart.html' %}
+        </div>
+        
+        {% elif active_tab == 'likes_admin' and role == 'admin' %}
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Лайки користувачів</h2>
+            </div>
+            
+            {% include 'partials/_likes_admin_table.html' %}
+        </div>
+        
+        {% elif active_tab == 'orders' and role == 'admin' %}
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Замовлення</h2>
+            </div>
+            
+            {% include 'partials/order.html' %}
+        </div>
+        {% endif %}
+    </main>
+</div>
+
+<script>
+    const btn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    // Открытие/закрытие меню
+    btn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('open');
+        document.body.classList.toggle('overflow-hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.classList.remove('overflow-hidden');
+    });
+</script>
+{% endblock %}

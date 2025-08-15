@@ -1,0 +1,32 @@
+<div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-green-600">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-white">
+                    Користувач
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-white">
+                    Машина
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-white">
+                    Дата лайку
+                </th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+            {% for like, user, car in likes_info %}
+            <tr class="hover:bg-gray-50 transition-colors duration-150">
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                    {{ user.username }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                    {{ car.year }} {{ car.make }} {{ car.model }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                    {{ like.created_at.strftime('%Y-%m-%d %H:%M') }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,434 @@
+<style>
+    body {
+        background-color: #f8faf8;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #111;
+    }
+    .table-container {
+        overflow-x: auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 24px;
+    }
+    th, td {
+        padding: 14px 16px;
+        text-align: left;
+        white-space: nowrap;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+        background: #16a34a;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+    tr:nth-child(even) {
+        background: #f8faf8;
+    }
+    tr:hover {
+        background: #f0fdf4;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+    }
+    .btn-green {
+        background: #16a34a;
+        color: white;
+    }
+    .btn-green:hover {
+        background: #15803d;
+        transform: translateY(-1px);
+    }
+    .btn-red {
+        background: #dc2626;
+        color: white;
+    }
+    .btn-red:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+    }
+    .modal-bg {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+    .modal-content {
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .form-input {
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 10px 14px;
+        width: 100%;
+        transition: all 0.2s;
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: #16a34a;
+        box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+    }
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #166534;
+        margin-bottom: 18px;
+    }
+    .empty-cart {
+        color: #6b7280;
+        padding: 20px;
+        text-align: center;
+    }
+    .cart-section {
+        margin: 0 16px 40px 16px;
+    }
+    @media (max-width: 768px) {
+        table, thead, tbody, th, td, tr {
+            display: block;
+            width: 100%;
+        }
+        thead {
+            display: none;
+        }
+        tr {
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            padding: 12px;
+            position: relative;
+        }
+        td {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+        }
+        td:last-child {
+            border-bottom: none;
+        }
+        td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #16a34a;
+            margin-right: 12px;
+        }
+        .btn {
+            padding: 6px 10px;
+        }
+        .cart-section {
+            margin: 0 8px 32px 8px;
+        }
+    }
+</style>
+
+<div class="container mx-auto px-4 py-6">
+    <!-- Первая корзина -->
+    <div class="cart-section">
+        <h2 class="section-title">🛒 Нові запчастини</h2>
+
+        {% if cart_items %}
+        <div class="overflow-x-auto">
+            <!-- Мобильная версия -->
+            <div class="md:hidden">
+              {% for item in cart_items %}
+              <div class="mb-4 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between">
+                    <div>
+                      <p class="text-sm font-medium text-gray-500">Товар</p>
+                      <p class="font-semibold text-gray-800">{{ item.brand }}</p>
+                      <p class="text-sm text-gray-600">{{ item.part_code }}</p>
+                      <p class="text-xs text-green-600 font-medium">🏷️ {{ item.price_logo }}</p>
+                    </div>
+                    <div class="text-right">
+                      <p class="text-sm font-medium text-gray-500">Ціна</p>
+                      <p class="font-semibold text-gray-900">
+                        {{ item.price }} {{ item.currency }}
+                        {% if not item.is_price_final %}
+                          <span class="relative group">
+                            <span class="text-yellow-600 cursor-help">*</span>
+                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
+                              +Послуги доставки
+                            </span>
+                          </span>
+                        {% endif %}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <p class="text-sm font-medium text-gray-500">Кількість</p>
+                      <span class="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                        ✖️ {{ item.quantity }}
+                      </span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-500">Доставка</p>
+                      <div class="flex items-center">
+                        {% if item.delivery_type == 'Авиа' %}✈️
+                        {% elif item.delivery_type == 'Авто' %}🚛
+                        {% else %}🚢{% endif %}
+                        <span class="ml-1">{{ item.delivery_time }} дн.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <p class="text-sm font-medium text-gray-500">Повернення</p>
+                      {% if item.is_return %}
+                      <span class="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                        ✅ Так
+                      </span>
+                      {% else %}
+                      <span class="inline-block px-2 py-1 bg-red-100 text-red-800 rounded-full text-sm">
+                        ❌ Ні
+                      </span>
+                      {% endif %}
+                    </div>
+                    <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="POST" 
+                          onsubmit="return confirm('Видалити цей товар?')">
+                      <button type="submit" class="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition">
+                        🗑️
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <!-- Десктопная версия -->
+            <table class="min-w-full hidden md:table bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
+              <thead class="bg-gradient-to-r from-green-600 to-green-500">
+                <tr>
+                  <th class="px-5 py-3 text-left text-sm font-semibold text-white">Товар</th>
+                  <th class="px-5 py-3 text-left text-sm font-semibold text-white">Ціна</th>
+                  <th class="px-5 py-3 text-left text-sm font-semibold text-white">Кількість</th>
+                  <th class="px-5 py-3 text-left text-sm font-semibold text-white">Доставка</th>
+                  <th class="px-5 py-3 text-left text-sm font-semibold text-white">Повернення</th>
+                  <th class="px-5 py-3 text-right text-sm font-semibold text-white">Дії</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                {% for item in cart_items %}
+                <tr class="hover:bg-green-50 transition">
+                  <td class="px-5 py-4">
+                    <div class="font-semibold text-gray-800">{{ item.brand }}</div>
+                    <div class="text-sm text-gray-600">{{ item.part_code }}</div>
+                    <div class="text-xs text-green-600 font-medium">🏷️ {{ item.price_logo }}</div>
+                  </td>
+                  <td class="px-5 py-4 text-gray-900">
+                    {{ item.price }} {{ item.currency }}
+                    {% if not item.is_price_final %}
+                      <span class="relative group">
+                        <span class="text-yellow-600 cursor-help">*</span>
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
+                          +Послуги доставки
+                        </span>
+                      </span>
+                    {% endif %}
+                  </td>
+                  <td class="px-5 py-4">
+                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                      ✖️ {{ item.quantity }}
+                    </span>
+                  </td>
+                  <td class="px-5 py-4">
+                    <div class="flex items-center">
+                      {% if item.delivery_type == 'Авиа' %}✈️
+                      {% elif item.delivery_type == 'Авто' %}🚛
+                      {% else %}🚢{% endif %}
+                      <span class="ml-1">{{ item.delivery_time }} дн.</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-4">
+                    {% if item.is_return %}
+                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                      ✅ Так
+                    </span>
+                    {% else %}
+                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-sm">
+                      ❌ Ні
+                    </span>
+                    {% endif %}
+                  </td>
+                  <td class="px-5 py-4 text-right">
+                    <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="POST" 
+                          onsubmit="return confirm('Видалити цей товар?')">
+                      <button type="submit" class="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition">
+                        🗑️
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        <!-- Кнопка оформления -->
+        <div class="text-center mt-8">
+            <button onclick="document.getElementById('checkoutModal').classList.remove('hidden')" 
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-6 py-3 shadow-lg transition">
+                🧾 Оформити замовлення
+            </button>
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500 text-lg mt-6">Кошик порожній</p>
+        {% endif %}
+    </div>
+
+    <!-- Вторая корзина -->
+    <div class="cart-section">
+        <h2 class="section-title">🚗 Авторазборка</h2>
+        {% if new_cart_items %}
+        <div class="overflow-x-auto">
+            <!-- Мобильная версия -->
+            <div class="md:hidden">
+                {% for item in new_cart_items %}
+                <div class="mb-4 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Назва</p>
+                            <p class="font-semibold text-gray-800">{{ item.name }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Бренд</p>
+                            <p class="font-medium">{{ item.brand }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Код</p>
+                            <p class="text-gray-700">{{ item.part_code }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Ціна</p>
+                            <p class="font-semibold text-green-700">{{ item.price }} грн</p>
+                        </div>
+                        <div class="text-right">
+                            <form action="{{ url_for('remove_from_new_cart', item_id=item.id) }}" method="POST" 
+                                  onsubmit="return confirm('Видалити з нової корзини?')">
+                                <button type="submit" class="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition">
+                                    🗑️
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Десктопная версия -->
+            <table class="min-w-full hidden md:table bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
+                <thead class="bg-gradient-to-r from-green-600 to-green-500">
+                    <tr>
+                        <th class="px-5 py-4 text-left text-sm font-semibold text-white">Назва</th>
+                        <th class="px-5 py-4 text-left text-sm font-semibold text-white">Бренд</th>
+                        <th class="px-5 py-4 text-left text-sm font-semibold text-white">Код</th>
+                        <th class="px-5 py-4 text-left text-sm font-semibold text-white">Ціна</th>
+                        <th class="px-5 py-4 text-right text-sm font-semibold text-white">Дії</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    {% for item in new_cart_items %}
+                    <tr class="hover:bg-green-50 transition">
+                        <td class="px-5 py-4 font-semibold text-gray-800">{{ item.name }}</td>
+                        <td class="px-5 py-4">{{ item.brand }}</td>
+                        <td class="px-5 py-4 text-gray-700">{{ item.part_code }}</td>
+                        <td class="px-5 py-4 font-semibold text-green-700">{{ item.price }} грн</td>
+                        <td class="px-5 py-4 text-right">
+                            <form action="{{ url_for('remove_from_new_cart', item_id=item.id) }}" method="POST" 
+                                  onsubmit="return confirm('Видалити з нової корзини?')">
+                                <button type="submit" class="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition">
+                                    🗑️
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Кнопка оформления -->
+        <div class="text-center mt-8">
+            <button onclick="document.getElementById('checkoutNewModal').classList.remove('hidden')" 
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-6 py-3 shadow-lg transition">
+                🧾 Оформити замовлення
+            </button>
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500 text-lg mt-6">Кошик порожній</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Модальные окна -->
+<div id="checkoutModal" class="fixed inset-0 modal-bg z-50 hidden flex items-center justify-center p-4">
+    <div class="modal-content w-full max-w-md relative">
+        <button onclick="document.getElementById('checkoutModal').classList.add('hidden')" 
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">
+            &times;
+        </button>
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-5 text-center text-green-700">Оформлення замовлення</h2>
+            <form method="post" action="{{ url_for('checkout') }}" class="space-y-4">
+                <input type="text" name="first_name" placeholder="Ім’я" required class="form-input">
+                <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
+                <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
+                <input type="text" name="city" placeholder="Місто" required class="form-input">
+                <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required class="form-input">
+                <button type="submit" class="btn btn-green w-full py-3 mt-2">
+                    Підтвердити замовлення
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="checkoutNewModal" class="fixed inset-0 modal-bg z-50 hidden flex items-center justify-center p-4">
+    <div class="modal-content w-full max-w-md relative">
+        <button onclick="document.getElementById('checkoutNewModal').classList.add('hidden')" 
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">
+            &times;
+        </button>
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-5 text-center text-green-700">Оформлення замовлення (Нова)</h2>
+            <form method="post" action="{{ url_for('checkout_new') }}" class="space-y-4">
+                <input type="text" name="first_name" placeholder="Ім’я" required class="form-input">
+                <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
+                <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
+                <input type="text" name="city" placeholder="Місто" required class="form-input">
+                <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required class="form-input">
+                <button type="submit" class="btn btn-green w-full py-3 mt-2">
+                    Підтвердити замовлення
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Закрытие модальных окон при клике на фон
+    document.querySelectorAll('.modal-bg').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    });
+</script>

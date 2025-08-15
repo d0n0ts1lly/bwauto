@@ -1,0 +1,122 @@
+<div class="space-y-8">
+    <h1 class="text-3xl font-bold text-gray-800">Список замовлень</h1>
+
+    <!-- Старые заказы -->
+    <section>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6 pb-2 border-b border-gray-200">Замовлення запчастин</h2>
+        
+        {% if orders %}
+        <div class="space-y-6">
+            {% for order in orders %}
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">ПІБ</p>
+                            <p class="font-medium">{{ order.first_name }} {{ order.last_name }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Телефон</p>
+                            <p class="font-medium">{{ order.phone }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Місто</p>
+                            <p class="font-medium">{{ order.city }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Відділення НП</p>
+                            <p class="font-medium">{{ order.np_office }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-500">Дата</p>
+                        <p>{{ order.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-700">Товари</h3>
+                        <ul class="space-y-2">
+                            {% for item in order.items %}
+                            <li class="flex justify-between items-start py-2 border-b border-gray-100 last:border-0">
+                                <div>
+                                    <p class="font-medium">{{ item.brand }} {{ item.part_code }}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p>{{ item.quantity }} × {{ item.price }} {{ item.currency }}</p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center text-gray-500">
+            Нема замовлень
+        </div>
+        {% endif %}
+    </section>
+
+    <!-- Новые заказы -->
+    <section>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6 pb-2 border-b border-gray-200">Авторазборка</h2>
+        
+        {% if new_orders %}
+        <div class="space-y-6">
+            {% for order in new_orders %}
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">ПІБ</p>
+                            <p class="font-medium">{{ order.first_name }} {{ order.last_name }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Телефон</p>
+                            <p class="font-medium">{{ order.phone }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Місто</p>
+                            <p class="font-medium">{{ order.city }}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Відділення НП</p>
+                            <p class="font-medium">{{ order.np_office }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-500">Дата</p>
+                        <p>{{ order.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-700">Товари</h3>
+                        <ul class="space-y-2">
+                            {% for item in order.items %}
+                            <li class="flex justify-between items-start py-2 border-b border-gray-100 last:border-0">
+                                <div>
+                                    <p class="font-medium">{{ item.brand }} {{ item.part_code or '' }}</p>
+                                    <p class="text-sm text-gray-500">{{ item.name }}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p>{{ item.price }} грн</p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center text-gray-500">
+            Нема замовлень
+        </div>
+        {% endif %}
+    </section>
+</div>

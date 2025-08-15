@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Cars for Sale{% endblock %}
+
+{% block head %}
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .car-card {
+        transition: all 0.3s ease;
+    }
+    .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    .gradient-bg {
+        background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
+    }
+    .filter-card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section class="gradient-bg text-white rounded-2xl p-8 md:p-12 shadow-2xl mb-8 overflow-hidden relative">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 animate-fadeIn">
+            Автомобілі з США під ключ
+        </h1>
+        <p class="text-xl opacity-90 mb-6">
+            Знайдіть ідеальний автомобіль за найкращою ціною
+        </p>
+        <div class="absolute bottom-0 left-0 right-0 w-full h-16 bg-gradient-to-t from-green-600/10 to-transparent"></div>
+    </div>
+</section>
+
+<!-- Filter Form -->
+<div class="filter-card rounded-xl shadow-lg p-6 mb-8">
+    <form method="get" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+        <!-- Марка -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Марка</label>
+            <select name="make" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                <option value="">Усі марки</option>
+                {% for make in makes %}
+                    <option value="{{ make }}" {% if make == selected_make %}selected{% endif %}>{{ make }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Рік -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Рік</label>
+            <select name="year" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                <option value="">Любий рік</option>
+                {% for y in years %}
+                    <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Мін. ціна -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Мін. ціна ($)</label>
+            <input type="number" name="min_price" placeholder="Від"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+                value="{{ min_price or '' }}">
+        </div>
+
+        <!-- Макс. ціна -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Макс. ціна ($)</label>
+            <input type="number" name="max_price" placeholder="До"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+                value="{{ max_price or '' }}">
+        </div>
+
+        <!-- Кнопка -->
+        <div class="flex items-end">
+            <button type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition transform hover:scale-[1.02] shadow-md">
+                Застосувати фільтр
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Car Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for car in cars %}
+    <div class="car-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+        <!-- Badge -->
+        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+            {{ car.lot_number }}
+        </div>
+        
+        <!-- Car Image -->
+        <div class="relative overflow-hidden h-48">
+            <img src="https://pluto.bid.car/1-{{ car.lot_number }}/{{ car.year }}-{{ car.make }}-{{ car.model.split()[0] }}-{{ car.vin }}-1.jpg"
+                 class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                 alt="{{ car.make }} {{ car.model }}">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        </div>
+
+        <!-- Car Info -->
+        <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-900 mb-1">{{ car.year }} {{ car.make }} {{ car.model }}</h3>
+            
+            <!-- Specifications -->
+            <div class="flex flex-wrap gap-2 my-3">
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{{ car.engine }}</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{{ car.odometer }} міль</span>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{{ car.vin }}</span>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-2 mb-4">
+                <span class="text-sm text-gray-500">Поточна ставка:</span>
+                <p class="text-xl font-bold text-green-600">${{ '{:,}'.format(car.numeric_price) }}</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between gap-2">
+                {% if current_user.is_authenticated %}
+                <form action="{{ url_for('toggle_like', car_id=car.id) }}" method="post" class="flex-1">
+                    <button type="submit"
+                            class="w-full flex items-center justify-center gap-1 text-sm border border-green-600 text-green-600 px-3 py-2 rounded-lg hover:bg-green-50 transition">
+                        {% if car.id in user_liked_car_ids %}
+                            <span class="text-red-500">❤️</span>
+                        {% else %}
+                            <span>🤍</span>
+                        {% endif %}
+                    </button>
+                </form>
+                {% endif %}
+                <a href="{{ url_for('car_details', car_id=car.id) }}"
+                   class="flex-1 text-center text-sm bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition">
+                    Детальніше
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% set filter_params = '' %}
+{% if selected_make %}{% set filter_params = filter_params + '&make=' + selected_make %}{% endif %}
+{% if selected_year %}{% set filter_params = filter_params + '&year=' + selected_year|string %}{% endif %}
+{% if min_price %}{% set filter_params = filter_params + '&min_price=' + min_price|string %}{% endif %}
+{% if max_price %}{% set filter_params = filter_params + '&max_price=' + max_price|string %}{% endif %}
+
+<div class="mt-12">
+    <nav class="flex items-center justify-center gap-1">
+        {% if page > 1 %}
+            <a href="?page=1{{ filter_params }}"
+               class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-green-50 transition">
+                &laquo;
+            </a>
+            <a href="?page={{ page - 1 }}{{ filter_params }}"
+               class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-green-50 transition">
+                &lsaquo;
+            </a>
+        {% endif %}
+
+        {% for p in range(start_page, end_page + 1) %}
+            <a href="?page={{ p }}{{ filter_params }}"
+               class="px-4 py-2 border rounded-lg transition min-w-[42px] text-center {% if p == page %}bg-green-600 text-white border-green-600 shadow-md{% else %}border-gray-300 hover:bg-green-50{% endif %}">
+                {{ p }}
+            </a>
+        {% endfor %}
+
+        {% if page < total_pages %}
+            <a href="?page={{ page + 1 }}{{ filter_params }}"
+               class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-green-50 transition">
+                &rsaquo;
+            </a>
+            <a href="?page={{ total_pages }}{{ filter_params }}"
+               class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-green-50 transition">
+                &raquo;
+            </a>
+        {% endif %}
+    </nav>
+    <div class="text-center text-sm text-gray-500 mt-2">
+        Сторінка {{ page }} з {{ total_pages }}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Like button animation
+    document.querySelectorAll('form[action*="/like/"] button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.innerHTML.includes('🤍')) {
+                this.innerHTML = '<span class="text-red-500">❤️</span>';
+            } else {
+                this.innerHTML = '<span>🤍</span>';
+            }
+        });
+    });
+    
+    // Image lazy loading
+    const carImages = document.querySelectorAll('.car-card img');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.src = entry.target.dataset.src || entry.target.src;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    carImages.forEach(img => observer.observe(img));
+});
+</script>
+{% endblock %}

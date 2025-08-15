@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Best World Auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="bg-light text-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип" class="img-fluid" style="max-height: 50px;">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item pt-2"><a href="https://d0n0ts1lly.github.io/calculator/" class="btn btn-warning">Калькулятор</a></li>
+                    <li class="nav-item ms-3 pt-3 me-1"><img src="{{ url_for('static', filename='images/telephone.png') }}" alt="Телефон" class="img-fluid" style="max-height: 30px;"></li>
+                    <li class="nav-item"><ul style="list-style: none; padding: 0%;">
+                        <li>(097) 84-84-004</li>
+                        <li>(050) 84-84-004</li>
+                        <li>(063) 84-84-004</li>
+                    </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container my-4">
+        <div class="container mt-4">
+            <div class="row align-items-center banner">
+                <div class="col-md-6 text-center text-md-start">
+                    <h2>ПРИВЕЗЕМО ДЛЯ ВАС АВТО З БУДЬ-ЯКОЇ ТОЧКИ СВІТУ!!</h2>
+                    <p><em>Авто під ключ з США, Європи, Китаю та Південної Кореї</em></p>
+                    <a href="{{ url_for('cars') }}" class="btn btn-primary">ВИБРАТИ АВТО</a>
+                </div>
+                <div class="col-md-6 d-none d-md-block p-0">
+                    <img src="{{ url_for('static', filename='images/auto.png') }}" alt="Авто">
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <h2 class="text-center">НЕЩОДАВНО ПРИВЕЗЕНІ АВТОМОБІЛІ</h2>
+            <div class="row mb-3">
+                <div class="col-md-4 car-card md-3">
+                    <img src="{{ url_for('static', filename='images/toyota.jpg') }}" alt="Toyota">
+                    <h4>TOYOTA</h4>
+                    <div class="spec-list">
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин"><br>Бензин</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат"><br>Автомат</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний"><br>Повний</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023"><br>2023</div>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p>Ціна авто: ...</p>
+                        <p>Аукціонний збір: ...</p>
+                        <p>Страхування: ...</p>
+                        <p>Доставка до порту: ...</p>
+                        <p>Ціна морської переправи: ...</p>
+                        <p>Акциз: ...</p>
+                        <p>Мито: ...</p>
+                        <p>ПДВ: ...</p>
+                        <p>Брокер: ...</p>
+                        <p>Небезпечний вантаж: ...</p>
+                        <p>Експедиція: ...</p>
+                        <p>Доставка до міста Львів: ...</p>
+                        <p>Сертифікація: ...</p>
+                        <p>Постановка на облік: ...</p>
+                        <p>Послуги компанії: ...</p>
+                    </div>
+                    <a href="#" class="btn btn-success w-100">АВТО "ПІД КЛЮЧ"</a>
+                </div>
+                <div class="col-md-4 car-card md-3">
+                    <img src="{{ url_for('static', filename='images/lexus.jpg') }}" alt="Lexus">
+                    <h4>LEXUS</h4>
+                    <div class="spec-list">
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин"><br>Бензин</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат"><br>Автомат</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний"><br>Повний</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023"><br>2023</div>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p>Ціна авто: ...</p>
+                        <p>Аукціонний збір: ...</p>
+                        <p>Страхування: ...</p>
+                        <p>Доставка до порту: ...</p>
+                        <p>Ціна морської переправи: ...</p>
+                        <p>Акциз: ...</p>
+                        <p>Мито: ...</p>
+                        <p>ПДВ: ...</p>
+                        <p>Брокер: ...</p>
+                        <p>Небезпечний вантаж: ...</p>
+                        <p>Експедиція: ...</p>
+                        <p>Доставка до міста Львів: ...</p>
+                        <p>Сертифікація: ...</p>
+                        <p>Постановка на облік: ...</p>
+                        <p>Послуги компанії: ...</p>
+                    </div>
+                    <a href="#" class="btn btn-success w-100">АВТО "ПІД КЛЮЧ"</a>
+                </div>
+                <div class="col-md-4 car-card md-3">
+                    <img src="{{ url_for('static', filename='images/bmw.jpg') }}" alt="BMW">
+                    <h4>BMW</h4>
+                    <div class="spec-list">
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Дизель"><br>Дизель</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат"><br>Автомат</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний"><br>Повний</div>
+                        <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2019"><br>2019</div>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p>Ціна авто: ...</p>
+                        <p>Аукціонний збір: ...</p>
+                        <p>Страхування: ...</p>
+                        <p>Доставка до порту: ...</p>
+                        <p>Ціна морської переправи: ...</p>
+                        <p>Акциз: ...</p>
+                        <p>Мито: ...</p>
+                        <p>ПДВ: ...</p>
+                        <p>Брокер: ...</p>
+                        <p>Небезпечний вантаж: ...</p>
+                        <p>Експедиція: ...</p>
+                        <p>Доставка до міста Львів: ...</p>
+                        <p>Сертифікація: ...</p>
+                        <p>Постановка на облік: ...</p>
+                        <p>Послуги компанії: ...</p>
+                    </div>
+                    <a href="#" class="btn btn-success w-100">АВТО "ПІД КЛЮЧ"</a>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center mb-4">Каталог автомобілів</h1>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card " style="height: 430px;">
+                    <img src="{{ url_for('static', filename='images/car1.jpg') }}" class="card-img-top" alt="Фото автомобіля" style="height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW X5</h5>
+                        <p class="card-text">Рік: 2020 | Двигун: 3.0L | Пробіг: 30,000</p>
+                        <a href="#" class="btn btn-primary">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card"  style="height: 430px;">
+                    <img src="{{ url_for('static', filename='images/car2.jpg') }}" class="card-img-top" alt="Фото автомобіля"  style="height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Mercedes-Benz GLE</h5>
+                        <p class="card-text">Рік: 2021 | Двигун: 2.0L | Пробіг: 25,000</p>
+                        <a href="#" class="btn btn-primary">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card"  style="height: 430px;">
+                    <img src="{{ url_for('static', filename='images/car3.jpg') }}" class="card-img-top" alt="Фото автомобіля"  style="height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Audi Q7</h5>
+                        <p class="card-text">Рік: 2019 | Двигун: 3.0L | Пробіг: 40,000</p>
+                        <a href="{{ url_for('cars') }}" class="btn btn-primary">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 class="text-center mb-4">Економте з нами</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title">Бюджетно</h5>
+                                <h6 class="card-subtitle mb-4 text-muted">Ціна без скидки 500$</h6>
+                                <p class="card-text">Купівля на аукціоні</p>
+                                <p class="card-text">Доставка авто в Україну</p>
+                                <p class="card-text">Розмитнення авто</p>
+                                <a href="{{ url_for('cars') }}" class="btn btn-primary mt-auto">ВИБРАТИ АВТО</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-lg-3 col-md-6 col-12 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title">Оптимально</h5>
+                                <h6 class="card-subtitle mb-4 text-muted">Ціна без скидки 700$</h6>
+                                <p class="card-text">Перевірка авто в США</p>
+                                <p class="card-text">Купівля на аукціоні</p>
+                                <p class="card-text">Перевірка у порті</p>
+                                <p class="card-text">Доставка авто в Україну</p>
+                                <p class="card-text">Розмитнення авто</p>
+                                <a href="" class="btn btn-primary mt-auto">ВИБРАТИ АВТО</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-lg-3 col-md-6 col-12 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title">Під ключ</h5>
+                                <h6 class="card-subtitle mb-4 text-muted">Ціна без скидки 1000$</h6>
+                                <p class="card-text">Перевірка авто в США</p>
+                                <p class="card-text">Купівля на аукціоні</p>
+                                <p class="card-text">Перевірка у порті</p>
+                                <p class="card-text">Доставка авто в Україну</p>
+                                <p class="card-text">Розмитнення авто</p>
+                                <p class="card-text">Ремонт пошкоджень</p>
+                                <p class="card-text">Сертифікація</p>
+                                <p class="card-text">Постановка на облік</p>
+                                <a href="{{ url_for('cars') }}" class="btn btn-primary mt-auto">ВИБРАТИ АВТО</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-lg-3 col-md-6 col-12 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title">Дилер</h5>
+                                <h6 class="card-subtitle mb-4 text-muted">Партнерські умови</h6>
+                                <p class="card-text">Отримайте</p>
+                                <p class="card-text">партнерську</p>
+                                <p class="card-text">пропозицію від компанії</p>
+                                <p class="card-text">Best World Auto</p>
+                                <a href="#" class="btn btn-primary mt-auto">ЗВ'ЯЗАТИСЯ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                      
+        </div>
+        <div class="container mt-4">
+            <h1 class="text-center mb-4">Чому обирають нас?</h1>
+            <div class="row g-4">
+                <div class="col-md-6" id="item1">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>Без посередників</h5>
+                            <p>Офіційно співпрацюємо з аукціонами у США. Завдяки цьому можемо запропонувати ціни на автомобілі та доставку від першого постачальника послуги.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img1.png') }}" alt="Изображение 1" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col-md-6" id="item2">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>Закриті аукціони</h5>
+                            <p>Викуп найкращих автомобілів завдяки доступу до закритих аукціонів.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img2.png') }}" alt="Изображение 2" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col-md-6" id="item3">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>5 років експертності</h5>
+                            <p>З 2015 року компанія доставляє автомобілі з США "під ключ" від підбору авто до митного очищення, сертифікації ЄВРО 5 та постановки на облік.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img3.png') }}" alt="Изображение 3" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col-md-6" id="item4">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>Гарантія безпеки</h5>
+                            <p>Даємо гарантію збереження вашого автомобіля під час транспортування. Ми отримуємо фотозвіт стану авто перед відправкою зі США та після прибуття в Україну.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img4.png') }}" alt="Изображение 4" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col-md-6" id="item5">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>Швидка доставка</h5>
+                            <p>Доставка морем із США в Україну всього 28 – 42 дні. Не потрібно чекати авто 2-3 місяці, завдяки чудовій логістиці.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img5.png') }}" alt="Изображение 5" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col-md-6" id="item6">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="flex-grow-1">
+                            <h5>Своя логістика</h5>
+                            <p>Здійснюємо логістику своїми автовозами та лафетами Україною.</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/img6.png') }}" alt="Изображение 6" class="img-fluid ms-3" style="max-width: 100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <h1 class="text-center mb-4">Працюємо з 4 основними портами США</h1>
+            <div class="row">
+                <div class="col-md-6" d-flex>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/plus.png') }}" class="me-3" alt="Иконка" style="max-width: 100px;">
+                        <div>
+                            <h5>Веземо всі ТЗ</h5>
+                            <p class="mb-0">Доставляємо в Україну всі види транспортних засобів.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/plus.png') }}" class="me-3" alt="Иконка" style="max-width: 100px;">
+                        <div>
+                            <h5>Фотозвіт</h5>
+                            <p class="mb-0">Ми надаємо фотозвіт під час завантаження та розвантаження вашого транспортного засобу.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/plus.png') }}" class="me-3" alt="Иконка" style="max-width: 100px;">
+                        <div>
+                            <h5>Безкоштовна парковка</h5>
+                            <p class="mb-0">Ми маємо свої майданчики в 4 портах США, де зберігаються автомобілі наших партнерів. Стоянка в порту повністю безкоштовна, незалежно від кількості днів.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ url_for('static', filename='images/plus.png') }}" class="me-3" alt="Иконка" style="max-width: 100px;">
+                        <div>
+                            <h5>Власна брокерська компанія</h5>
+                            <p class="mb-0">Ми також надаємо комплексні послуги брокера та експедитора в портах.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <img src="{{ url_for('static', filename='images/Ports.png') }}" class="img-fluid" alt="Большое изображение">
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <h1 class="text-center mb-4">Чому обирають нас?</h1>
+            <div class="row g-4">
+                <div class="col-md-6" id="item1">
+                    <div class="d-flex align-items-center p-3">
+                        <img src="{{ url_for('static', filename='images/1.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                        <div class="flex-grow-1">
+                            <h5>Підбір авто на аукціоні</h5>
+                            <hr>
+                            <p>За запитом клієнта ми підбираємо лот (автомобіль) на аукціоні в США, перевіряємо його історію та обчислюємо всі витрати.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" id="item2">
+                    <div class="d-flex align-items-center p-3">
+                        <img src="{{ url_for('static', filename='images/2.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                        <div class="flex-grow-1">
+                            <h5>Доставка авто</h5>
+                            <hr>
+                            <p>Доставка в порт, фото автомобіля та завантаження в контейнер.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" id="item3">
+                    <div class="d-flex align-items-center p-3">
+                        <img src="{{ url_for('static', filename='images/3.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                        <div class="flex-grow-1">
+                            <h5>Купівля авто</h5>
+                            <hr>
+                            <p>Участь в аукціоні, купівля авто.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" id="item4">
+                    <div class="d-flex align-items-center p-3">
+                        <img src="{{ url_for('static', filename='images/4.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                        <div class="flex-grow-1">
+                            <h5>Доствка в Україну</h5>
+                            <hr>
+                            <p>Вивантаження та оформлення автомобіля.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none d-md-block p-0 h-100" id="item5">
+                    <img src="{{ url_for('static', filename='images/auto1.png') }}" style="width: 500px;" alt="">
+                </div>
+                <div class="col-md-6" id="item6">
+                    <div class="col-md-0">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="{{ url_for('static', filename='images/5.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                            <div class="flex-grow-1">
+                                <h5>Розмитнення авто</h5>
+                                <hr>
+                                <p>Оплата митних платежів та послуг.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-0">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="{{ url_for('static', filename='images/6.png') }}" alt="Изображение 6" class="img-fluid ms-3 me-3" style="max-width: 100px;">
+                            <div class="flex-grow-1">
+                                <h5>Ремонт авто</h5>
+                                <hr>
+                                <p>Ремонт автомобілів під ключ, якщо це необхідно.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <h2>Давайте знайомитись!!</h2>
+                <p>Компанія є офіційним дилером найбільших автомобільних аукціонів Америки та Канади, серед яких Копарт (Copart), Іншуренс (IAAI), Мангейм (Manheim). Маючи цей статус, ми маємо доступ до закритих торгів, недоступних для приватних осіб.</p>
+                <p>Маючи багаторічний досвід роботи в автобізнесі, наша команда надає повний спектр послуг під ключ для придбання автомобілів на аукціонах та дилерських майданчиках США та Канади без посередників.</p>
+                <p>Також, маючи дилерську ліцензію, ми пропонуємо нашим клієнтам мінімальні ціни на викуп автомобілів та низькі аукціонні збори.</p>                    
+                <p>Засновник Бадун Андрій Валерійович</p>
+              </div>
+              <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/auto2.png') }}" alt="Картинка" class="img-fluid">
+              </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <h1 class="text-center mb-4">Аукціони-партнери</h1>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <a href="https://www.copart.com"><img src="{{ url_for('static', filename='images/Copart.png') }}" class="img-fluid" alt="Image 1"></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.iaai.com"><img src="{{ url_for('static', filename='images/IAAI.png') }}" class="img-fluid" alt="Image 2"></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://site.manheim.com"><img src="{{ url_for('static', filename='images/Manheim.png') }}" class="img-fluid" alt="Image 3"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://media.istockphoto.com/id/486570435/ru/фото/кран-вверх-контейнер-в-двор.jpg?s=612x612&w=0&k=20&c=FF8Kf4G7YmOg3bH6kLS5stvnOl05FK2gfvXCUOuQZOs=" alt="Картинка" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h2>На ринку більше 5 років</h2>
+                    <p>Під час виконання всіх етапів клієнти отримують цілодобову підтримку 24/7 з детальною інформацією про процес придбання та доставки автомобілів з США та Канади.</p>
+                    <p>Купуючи автомобіль з США з нашою компанією, ви заощаджуєте 30% або більше від вартості автомобіля в Україні, включаючи всі витрати. Ми також пропонуємо в Америці не тільки автомобілі, але й мотоцикли, квадроцикли, снігоходи, спецтехніку, сільгосптехніку, яхти, катери, човни, гідроцикли та багато іншого вживаного обладнання.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2025 Best World Auto. Усі права захищені.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

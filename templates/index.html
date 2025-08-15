@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+
+{% block title %}Best World Auto{% endblock %}
+
+{% block head %}
+<style>
+    .car-card img {
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+    .spec-item img {
+        max-height: 25px;
+        margin-bottom: 4px;
+    }
+    .gradient-bg {
+        background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
+    }
+    .process-card {
+        transition: all 0.3s ease;
+        border-left: 4px solid #16a34a;
+    }
+    .process-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .benefit-card {
+        transition: all 0.3s ease;
+    }
+    .benefit-card:hover {
+        transform: scale(1.02);
+    }
+    .package-card {
+        transition: all 0.3s ease;
+        border-top: 4px solid #16a34a;
+    }
+    .package-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative gradient-bg text-white rounded-2xl p-8 md:p-12 shadow-2xl mb-12 overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8 relative z-10">
+        <div>
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                Привеземо авто з будь-якої точки світу!
+            </h1>
+            <p class="mt-4 text-lg md:text-xl font-light opacity-90">
+                Авто під ключ з США, Європи, Китаю та Південної Кореї
+            </p>
+            <a href="{{ url_for('cars') }}" 
+               class="mt-6 inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition transform duration-300">
+                Вибрати авто
+            </a>
+        </div>
+        <div class="hidden md:block text-center">
+            <img src="{{ url_for('static', filename='images/auto.png') }}" 
+                 alt="Авто" 
+                 class="rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full max-w-md">
+        </div>
+    </div>
+    <!-- Декоративные элементы -->
+    <div class="absolute top-0 left-0 w-40 h-40 bg-white opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-60 h-60 bg-white opacity-10 rounded-full blur-3xl"></div>
+</section>
+
+<!-- Recently Imported Cars -->
+<section class="container mx-auto my-10 px-4">
+  <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8 relative inline-block">
+      <span class="relative z-10 px-4">Нещодавно привезені автомобілі</span>
+      <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
+  </h2>
+  <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      
+      <!-- Toyota -->
+      <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+          <img src="{{ url_for('static', filename='images/toyota.jpg') }}" alt="Toyota" class="w-full h-48 object-cover">
+          <div class="p-5">
+              <h4 class="text-xl font-bold text-center text-green-700">TOYOTA</h4>
+              <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Бензин</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2023</p></div>
+              </div>
+              <div class="text-sm text-gray-700 mt-4 space-y-2">
+                  <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Мито:</span> <span class="font-medium">...</span></p>
+              </div>
+              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                  АВТО "ПІД КЛЮЧ"
+              </a>
+          </div>
+      </div>
+
+      <!-- Lexus -->
+      <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+          <img src="{{ url_for('static', filename='images/lexus.jpg') }}" alt="Lexus" class="w-full h-48 object-cover">
+          <div class="p-5">
+              <h4 class="text-xl font-bold text-center text-green-700">LEXUS</h4>
+              <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Бензин</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2023</p></div>
+              </div>
+              <div class="text-sm text-gray-700 mt-4 space-y-2">
+                  <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
+              </div>
+              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                  АВТО "ПІД КЛЮЧ"
+              </a>
+          </div>
+      </div>
+
+      <!-- BMW -->
+      <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+          <img src="{{ url_for('static', filename='images/bmw.jpg') }}" alt="BMW" class="w-full h-48 object-cover">
+          <div class="p-5">
+              <h4 class="text-xl font-bold text-center text-green-700">BMW</h4>
+              <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Дизель" class="mx-auto h-6"><p>Дизель</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
+                  <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2019" class="mx-auto h-6"><p>2019</p></div>
+              </div>
+              <div class="text-sm text-gray-700 mt-4 space-y-2">
+                  <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
+              </div>
+              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                  АВТО "ПІД КЛЮЧ"
+              </a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Каталог -->
+<section class="container mx-auto my-16 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8 relative inline-block mx-auto">
+        <span class="relative z-10 px-4">Каталог автомобілів</span>
+        <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
+            <img src="{{ url_for('static', filename='images/car1.jpg') }}" alt="BMW X5" class="w-full h-64 object-cover">
+            <div class="p-6 flex flex-col gap-3 flex-1">
+                <h5 class="text-xl font-bold text-gray-900">BMW X5</h5>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2020</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3.0L</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">30,000 км</span>
+                </div>
+                <a href="#" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                    Детальніше
+                </a>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
+            <img src="{{ url_for('static', filename='images/car2.jpg') }}" alt="Mercedes-Benz GLE" class="w-full h-64 object-cover">
+            <div class="p-6 flex flex-col gap-3 flex-1">
+                <h5 class="text-xl font-bold text-gray-900">Mercedes-Benz GLE</h5>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2021</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2.0L</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">25,000 км</span>
+                </div>
+                <a href="#" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                    Детальніше
+                </a>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
+            <img src="{{ url_for('static', filename='images/car3.jpg') }}" alt="Audi Q7" class="w-full h-64 object-cover">
+            <div class="p-6 flex flex-col gap-3 flex-1">
+                <h5 class="text-xl font-bold text-gray-900">Audi Q7</h5>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2019</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3.0L</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">40,000 км</span>
+                </div>
+                <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                    Детальніше
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Тарифы -->
+<section class="container mx-auto my-16 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8 relative inline-block mx-auto">
+        <span class="relative z-10 px-4">Економте з нами</span>
+        <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Бюджетно -->
+        <div class="package-card bg-white rounded-xl shadow-lg p-6 flex flex-col text-center h-full">
+            <h5 class="text-xl font-bold mb-2">Бюджетно</h5>
+            <div class="text-green-600 font-bold text-lg mb-4">Ціна без скидки 500$</div>
+            <ul class="text-gray-700 space-y-3 mb-6 text-left flex-1">
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Купівля на аукціоні</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Доставка авто в Україну</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Розмитнення авто</span>
+                </li>
+            </ul>
+            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+                ВИБРАТИ АВТО
+            </a>
+        </div>
+
+        <!-- Оптимально -->
+        <div class="package-card bg-white rounded-xl shadow-lg p-6 flex flex-col text-center h-full">
+            <h5 class="text-xl font-bold mb-2">Оптимально</h5>
+            <div class="text-green-600 font-bold text-lg mb-4">Ціна без скидки 700$</div>
+            <ul class="text-gray-700 space-y-3 mb-6 text-left flex-1">
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Перевірка авто в США</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Купівля на аукціоні</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Перевірка у порті</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Доставка авто в Україну</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Розмитнення авто</span>
+                </li>
+            </ul>
+            <a href="#" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+                ВИБРАТИ АВТО
+            </a>
+        </div>
+
+        <!-- Під ключ -->
+        <div class="package-card bg-white rounded-xl shadow-lg p-6 flex flex-col text-center h-full">
+            <h5 class="text-xl font-bold mb-2">Під ключ</h5>
+            <div class="text-green-600 font-bold text-lg mb-4">Ціна без скидки 1000$</div>
+            <ul class="text-gray-700 space-y-3 mb-6 text-left flex-1">
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Перевірка авто в США</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Купівля на аукціоні</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Перевірка у порті</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Доставка авто в Україну</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Розмитнення авто</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Ремонт пошкоджень</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Сертифікація</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Постановка на облік</span>
+                </li>
+            </ul>
+            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+                ВИБРАТИ АВТО
+            </a>
+        </div>
+
+        <!-- Дилер -->
+        <div class="package-card bg-white rounded-xl shadow-lg p-6 flex flex-col text-center h-full">
+            <h5 class="text-xl font-bold mb-2">Дилер</h5>
+            <div class="text-green-600 font-bold text-lg mb-4">Партнерські умови</div>
+            <ul class="text-gray-700 space-y-3 mb-6 text-left flex-1">
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Отримайте</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>партнерську</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>пропозицію від компанії</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Best World Auto</span>
+                </li>
+            </ul>
+            <a href="#" onclick="openModal(); return false;" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+                ЗВ'ЯЗАТИСЯ
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Преимущества -->
+<section class="container mx-auto my-16 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8 relative inline-block mx-auto">
+        <span class="relative z-10 px-4">Чому обирають нас?</span>
+        <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- item -->
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img1.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">Без посередників</h5>
+            </div>
+            <p class="text-gray-600">
+                Офіційно співпрацюємо з аукціонами у США. Завдяки цьому можемо запропонувати ціни на автомобілі та доставку від першого постачальника послуги.
+            </p>
+        </div>
+
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img2.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">Закриті аукціони</h5>
+            </div>
+            <p class="text-gray-600">Викуп найкращих автомобілів завдяки доступу до закритих аукціонів.</p>
+        </div>
+
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img3.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">5 років експертності</h5>
+            </div>
+            <p class="text-gray-600">
+                З 2015 року компанія доставляє автомобілі з США "під ключ" від підбору авто до митного очищення, сертифікації ЄВРО 5 та постановки на облік.
+            </p>
+        </div>
+
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img4.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">Гарантія безпеки</h5>
+            </div>
+            <p class="text-gray-600">
+                Даємо гарантію збереження вашого автомобіля під час транспортування. Ми отримуємо фотозвіт стану авто перед відправкою зі США та після прибуття в Україну.
+            </p>
+        </div>
+
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img5.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">Швидка доставка</h5>
+            </div>
+            <p class="text-gray-600">
+                Доставка морем із США в Україну всього 28 – 42 дні. Не потрібно чекати авто 2-3 місяці, завдяки чудовій логістиці.
+            </p>
+        </div>
+
+        <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img src="{{ url_for('static', filename='images/img6.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
+                <h5 class="text-lg font-semibold">Своя логістика</h5>
+            </div>
+            <p class="text-gray-600">Здійснюємо логістику своїми автовозами та лафетами Україною.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Аукціони-партнери -->
+<section class="container mx-auto my-16 px-4">
+  <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8 relative inline-block mx-auto">
+      <span class="relative z-10 px-4">Аукціони-партнери</span>
+      <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center">
+      <a href="https://www.copart.com" class="transition transform hover:scale-105 duration-300">
+          <img src="{{ url_for('static', filename='images/Copart.png') }}" class="max-h-16" alt="Copart">
+      </a>
+      <a href="https://www.iaai.com" class="transition transform hover:scale-105 duration-300">
+          <img src="{{ url_for('static', filename='images/IAAI.png') }}" class="max-h-16" alt="IAAI">
+      </a>
+      <a href="https://site.manheim.com" class="transition transform hover:scale-105 duration-300">
+          <img src="{{ url_for('static', filename='images/Manheim.png') }}" class="max-h-16" alt="Manheim">
+      </a>
+  </div>
+</section>
+
+<!-- На ринку більше 5 років -->
+<section class="container mx-auto my-16 px-4">
+  <div class="bg-white rounded-xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="p-0">
+          <img src="https://media.istockphoto.com/id/486570435/ru/фото/кран-вверх-контейнер-в-двор.jpg?s=612x612&w=0&k=20&c=FF8Kf4G7YmOg3bH6kLS5stvnOl05FK2gfvXCUOuQZOs=" 
+               alt="Логістика" 
+               class="w-full h-full object-cover rounded-l-xl">
+      </div>
+      <div class="p-8">
+          <h2 class="text-2xl font-bold text-green-700 mb-4">На ринку більше 5 років</h2>
+          <div class="space-y-4 text-gray-700">
+              <p>
+                  Під час виконання всіх етапів клієнти отримують цілодобову підтримку 24/7 з детальною інформацією про процес придбання та доставки автомобілів з США та Канади.
+              </p>
+              <p>
+                  Купуючи автомобіль з США з нашою компанією, ви заощаджуєте 30% або більше від вартості автомобіля в Україні, включаючи всі витрати.
+              </p>
+              <p>
+                  Ми також пропонуємо в Америці не тільки автомобілі, але й мотоцикли, квадроцикли, снігоходи, спецтехніку, сільгосптехніку, яхти, катери, човни, гідроцикли та багато іншого вживаного обладнання.
+              </p>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
