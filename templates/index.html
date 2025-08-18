@@ -79,7 +79,7 @@
       
       <!-- Toyota -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="{{ url_for('static', filename='images/toyota.jpg') }}" alt="Toyota" class="w-full h-48 object-cover">
+          <img src="https://politiki.net.ua/wp-content/uploads/novaja-toyota-crown-2023-avto-novosti-0c19682.jpg" alt="Toyota" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">TOYOTA</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -93,7 +93,7 @@
                   <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">...</span></p>
                   <p class="flex justify-between"><span>Мито:</span> <span class="font-medium">...</span></p>
               </div>
-              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+              <a href="#key" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                   АВТО "ПІД КЛЮЧ"
               </a>
           </div>
@@ -101,7 +101,7 @@
 
       <!-- Lexus -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="{{ url_for('static', filename='images/lexus.jpg') }}" alt="Lexus" class="w-full h-48 object-cover">
+          <img src="https://lh3.googleusercontent.com/proxy/JmvcJMd9Sg32lb4FQM_4PAjif0TkapNeE8N8A8--bCsGuw9PuwnDTd6JPFozp0KfUEuu7l0prHsRfWFHMPV9TLW3HA_qK5pja10NpR3W3bNBRqCZT33TWiEIlN3vaQm7cVKOQCDhr9N3qJyAvj8sYg" alt="Lexus" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">LEXUS</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -115,7 +115,7 @@
                   <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
                   <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
               </div>
-              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+              <a href="#key" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                   АВТО "ПІД КЛЮЧ"
               </a>
           </div>
@@ -123,7 +123,7 @@
 
       <!-- BMW -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="{{ url_for('static', filename='images/bmw.jpg') }}" alt="BMW" class="w-full h-48 object-cover">
+          <img src="https://cdn4.riastatic.com/photosnew/auto/photo/bmw_3-series__577261669f.jpg" alt="BMW" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">BMW</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -137,7 +137,7 @@
                   <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
                   <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
               </div>
-              <a href="#" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+              <a href="#key" class="mt-6 block text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                   АВТО "ПІД КЛЮЧ"
               </a>
           </div>
@@ -194,7 +194,7 @@
                     <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3.0L</span>
                     <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">40,000 км</span>
                 </div>
-                <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <a  id="key" href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
                     Детальніше
                 </a>
             </div>
@@ -274,7 +274,7 @@
                     <span>Розмитнення авто</span>
                 </li>
             </ul>
-            <a href="#" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
                 ВИБРАТИ АВТО
             </a>
         </div>

@@ -18,8 +18,9 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    'mysql://upguwkeyprdc0bvt:1GNIu6WjuCs7fRtRFYN3@bczcm6unxlupt6haw4fq-mysql.services.clever-cloud.com:3306/bczcm6unxlupt6haw4fq'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    "DATABASE_URL", 
+    "mysql+pymysql://root:23032023@localhost:3306/copart_db"
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
 app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
@@ -334,6 +335,10 @@ def cabinet():
 
     return render_template('cabinet.html', **context)
 
+@app.route('/error')
+def error():
+    return render_template("error.html")
+
 
 @app.route('/cars')
 def cars():
@@ -341,6 +346,8 @@ def cars():
     per_page = 8
 
     make_filter = request.args.get('make')
+    model_filter = request.args.get('model')
+    engine_filter = request.args.get('engine')
     year_filter = request.args.get('year', type=int)
     min_price = request.args.get('min_price', type=int)
     max_price = request.args.get('max_price', type=int)
@@ -348,11 +355,15 @@ def cars():
     query = Car.query
     if make_filter:
         query = query.filter(Car.make == make_filter)
+    if model_filter:
+        # фильтруем все модели, начинающиеся с выбранной
+        query = query.filter(Car.model.like(f"{model_filter}%"))
+    if engine_filter:
+        query = query.filter(Car.engine == engine_filter)
     if year_filter:
         query = query.filter(Car.year == year_filter)
 
-    # Сортировка по дате продажи (сначала свежие)
-
+    # сортировка
     query = query.order_by(
         case(
             (Car.sale_date == 'Будущий (-ие)', 1),
@@ -364,6 +375,7 @@ def cars():
 
     cars = query.all()
 
+    # цены
     def parse_price(value):
         if not value or 'CAD' in value:
             return None
@@ -394,6 +406,23 @@ def cars():
     end_page = min(page + 5, total_pages)
 
     makes = [m[0] for m in db.session.query(Car.make).distinct().all()]
+
+    # получаем "чистые" модели (без комплектации)
+    raw_models = db.session.query(Car.model).distinct().all()
+    models = sorted(set(m[0].split()[0] for m in raw_models if m[0]))
+
+    # фильтр по двигателям (оставь условие своё)
+    raw_engines = db.session.query(Car.engine).distinct().all()
+    engines = []
+    for e in raw_engines:
+        eng = e[0]
+        if not eng:
+            continue
+        if eng == "N/A":  # 👈 тут условие, можешь менять сам
+            continue
+        engines.append(eng)
+    engines = sorted(set(engines))
+
     years = [y[0] for y in db.session.query(Car.year).distinct().order_by(Car.year.desc()).all()]
 
     if current_user.is_authenticated:
@@ -409,14 +438,29 @@ def cars():
         start_page=start_page,
         end_page=end_page,
         makes=makes,
+        models=models,
+        engines=engines,
         years=years,
         selected_make=make_filter,
+        selected_model=model_filter,
+        selected_engine=engine_filter,
         selected_year=year_filter,
         min_price=min_price,
         max_price=max_price,
         user_liked_car_ids=user_liked_car_ids
     )
 
+@app.route("/get_models/<make>")
+def get_models(make):
+    models = db.session.query(Car.model).filter(Car.make == make).all()
+    unique_models = sorted({m[0].split()[0] for m in models if m[0]})  # CR-V вместо CR-V LX
+    return jsonify(models=unique_models)
+
+@app.route("/get_engines/<model>")
+def get_engines(model):
+    engines = db.session.query(Car.engine).filter(Car.model.like(f"{model}%")).all()
+    unique_engines = sorted({e[0] for e in engines if e[0]})
+    return jsonify(engines=unique_engines)
 
 
 @app.route('/parts', methods=['GET', 'POST'])
@@ -510,12 +554,12 @@ def parts():
 
     return render_template('parts.html', parts=parts, searched=searched, code=code, brands=brands, selected_brand_id=selected_brand_id)
 
-@app.route('/aparts')
+@app.route('/razborka/aparts')
 def aparts_catalog():
     categories = Category.query.order_by(Category.name).all()
     return render_template('aparts_catalog.html', categories=categories)
 
-@app.route('/aparts/<int:subcategory_id>')
+@app.route('/razborka/aparts/<int:subcategory_id>')
 def parts_list(subcategory_id):
     sort = request.args.get('sort')  # price_asc или price_desc
     subcategory = Subcategory.query.get_or_404(subcategory_id)
@@ -820,6 +864,10 @@ def car_details(car_id):
         user_liked_car_ids = []
 
     return render_template('car_details.html', car=car, user_liked_car_ids=user_liked_car_ids)
+
+@app.route('/razborka')
+def razborka():
+    return render_template("razborka.html")
 
 
 @app.route('/')

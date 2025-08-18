@@ -97,17 +97,25 @@
                 <p class="text-green-600 font-semibold mt-1">Ставка зараз: {{ car.current_bid }}</p>
             </div>
             
-            {% if current_user.is_authenticated %}
-            <form action="{{ url_for('toggle_like', car_id=car.id) }}" method="post">
-                <button type="submit" class="like-btn border border-green-600 text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition">
-                    {% if car.id in user_liked_car_ids %}
-                        <span class="text-red-500">❤️</span>
-                    {% else %}
-                        <span>🤍</span>
-                    {% endif %}
+            <div class="flex items-center gap-2">
+                {% if current_user.is_authenticated %}
+                <button onclick="sharePage()" 
+                        class="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition ml-2 sm:ml-0">
+                    <span>🔗</span>
+                    <span class="hidden sm:inline">Поділитись</span>
                 </button>
-            </form>
-            {% endif %}
+                
+                <form action="{{ url_for('toggle_like', car_id=car.id) }}" method="post">
+                    <button type="submit" class="like-btn border border-green-600 text-green-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 transition">
+                        {% if car.id in user_liked_car_ids %}
+                            <span class="text-red-500">❤️</span>
+                        {% else %}
+                            <span>🤍</span>
+                        {% endif %}
+                    </button>
+                </form>
+                {% endif %}
+            </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -205,4 +213,20 @@
         }
     });
 </script>
+<script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: "Авто з США",
+          url: window.location.href
+        }).catch(err => console.log("Скасовано або помилка:", err));
+      } else {
+        // fallback: копіювання посилання
+        navigator.clipboard.writeText(window.location.href);
+        alert("Посилання скопійоване у буфер обміну!");
+      }
+    }
+    </script>
+    
 {% endblock %}

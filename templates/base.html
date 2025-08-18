@@ -91,10 +91,9 @@
                     lg:transform-none lg:opacity-100 lg:scale-100 lg:pointer-events-auto">
     
                 <div class="relative">
-                    <button id="dropdownButton" 
+                    <button id="partsDropdownButton" 
                             class="w-full bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium flex items-center justify-center gap-1 nav-link-transition"
-                            aria-haspopup="true" aria-expanded="false"
-                            onclick="toggleDropdown()">
+                            aria-haspopup="true" aria-expanded="false">
                       Запчастини
                       <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -102,23 +101,37 @@
                     </button>
                   
                     <!-- Выпадающее меню -->
-                    <div id="dropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
-                      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
+                    <div id="partsDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
+                      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="partsDropdownButton">
                         <a href="/parts" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Нові запчастини</a>
-                        <a href="/aparts" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авторазборка</a>
+                        <a href="/razborka" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авторазборка</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <button id="carsDropdownButton" 
+                            class="w-full bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium flex items-center justify-center gap-1 nav-link-transition"
+                            aria-haspopup="true" aria-expanded="false">
+                      Купити Авто
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </button>
+                  
+                    <!-- Выпадающее меню -->
+                    <div id="carsDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
+                      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="carsDropdownButton">
+                        <a href="/cars" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з США</a>
+                        <a href="/error" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з Європи</a>
+                        <a href="/error" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з Китаю</a>
                       </div>
                     </div>
                 </div>
     
-                <a href="https://d0n0ts1lly.github.io/calculator/"
-                   target="_blank"
+                <a href="/calculator"
                    class="bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium text-center nav-link-transition">
                     Калькулятор
-                </a>
-    
-                <a href="/cars"
-                   class="bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium text-center nav-link-transition">
-                    Авто з США
                 </a>
     
                 <div class="flex items-center gap-3 p-3 rounded-lg lg:bg-transparent bg-gray-50">
@@ -205,22 +218,48 @@
         </div>
     </div>
     <script>
+        // Мобильное меню
         const toggleBtn = document.getElementById('menu-toggle');
         const menu = document.getElementById('main-menu');
     
         toggleBtn.addEventListener('click', () => {
             if(menu.classList.contains('opacity-0')) {
-                // Показать меню
                 menu.classList.remove('-translate-y-4', 'opacity-0', 'scale-y-95', 'pointer-events-none');
                 menu.classList.add('translate-y-0', 'opacity-100', 'scale-y-100');
             } else {
-                // Скрыть меню
                 menu.classList.add('-translate-y-4', 'opacity-0', 'scale-y-95', 'pointer-events-none');
                 menu.classList.remove('translate-y-0', 'opacity-100', 'scale-y-100');
             }
         });
+
+        // Выпадающие меню
+        const partsButton = document.getElementById('partsDropdownButton');
+        const partsMenu = document.getElementById('partsDropdownMenu');
+        const carsButton = document.getElementById('carsDropdownButton');
+        const carsMenu = document.getElementById('carsDropdownMenu');
+
+        partsButton.addEventListener('click', () => {
+            partsMenu.classList.toggle('hidden');
+            carsMenu.classList.add('hidden');
+        });
+
+        carsButton.addEventListener('click', () => {
+            carsMenu.classList.toggle('hidden');
+            partsMenu.classList.add('hidden');
+        });
+
+        // Закрытие меню при клике вне
+        document.addEventListener('click', (event) => {
+            if (!partsButton.contains(event.target) && !partsMenu.contains(event.target)) {
+                partsMenu.classList.add('hidden');
+            }
+            if (!carsButton.contains(event.target) && !carsMenu.contains(event.target)) {
+                carsMenu.classList.add('hidden');
+            }
+        });
     </script>
     <script>
+        // Модальное окно
         const chatId = "1312342943"; 
         const botToken = "8357407082:AAHs_nYFp7kzGlebt6bYuYBnpuTqlqN3zRc"; 
       
@@ -265,22 +304,6 @@
             alert("Дякуємо! Ми скоро звʼяжемось з вами.");
             closeModal();
             form.reset();
-        });
-    </script>
-    <script>
-        function toggleDropdown() {
-            const menu = document.getElementById('dropdownMenu');
-            menu.classList.toggle('hidden');
-        }
-    
-        // Чтобы закрыть меню при клике вне
-        document.addEventListener('click', function(event) {
-            const button = document.getElementById('dropdownButton');
-            const menu = document.getElementById('dropdownMenu');
-    
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.add('hidden');
-            }
         });
     </script>
 

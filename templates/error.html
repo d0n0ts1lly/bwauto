@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Сторінка в розробці | AutoImport{% endblock %}
+
+{% block content %}
+<div class="flex-grow flex items-center justify-center">
+    <div class="container mx-auto px-4 py-12 text-center max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform transition-all duration-300 hover:shadow-2xl pulse-animation">
+            <div class="mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 animate__animated animate__fadeInDown">
+                Сторінка в розробці
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed animate__animated animate__fadeIn animate__delay-1s">
+                Ми активно працюємо над створенням нового сервісу для замовлення авто з Європи, Китаю та Кореї.
+                <br>
+                Вже зараз ви можете замовити дзвінок або зв'язатися з нами для консультації.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+                <a href="tel:+380978484004" class="phone-link bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    (097) 848-40-04
+                </a>
+                
+                <a href="tel:+380508484004" class="phone-link bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    (050) 848-40-04
+                </a>
+            </div>
+            
+            <div class="animate__animated animate__fadeIn animate__delay-2s">
+                <p class="text-gray-500 mb-4">Або залиште свій номер і ми передзвонимо</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    .phone-link {
+        transition: all 0.3s ease;
+    }
+    .phone-link:hover {
+        transform: translateY(-3px);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

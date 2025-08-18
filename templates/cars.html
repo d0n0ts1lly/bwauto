@@ -42,10 +42,11 @@
 <!-- Filter Form -->
 <div class="filter-card rounded-xl shadow-lg p-6 mb-8">
     <form method="get" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+
         <!-- Марка -->
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Марка</label>
-            <select name="make" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+            <select name="make" id="makeSelect" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
                 <option value="">Усі марки</option>
                 {% for make in makes %}
                     <option value="{{ make }}" {% if make == selected_make %}selected{% endif %}>{{ make }}</option>
@@ -53,14 +54,40 @@
             </select>
         </div>
 
+        <!-- Модель -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Модель</label>
+            <select name="model" id="modelSelect" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" {% if not selected_make %}disabled{% endif %}>
+                <option value="">Усі моделі</option>
+                {% if models %}
+                    {% for model in models %}
+                        <option value="{{ model }}" {% if model == selected_model %}selected{% endif %}>{{ model }}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+
         <!-- Рік -->
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Рік</label>
             <select name="year" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
-                <option value="">Любий рік</option>
+                <option value="">Будь-який рік</option>
                 {% for y in years %}
                     <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
                 {% endfor %}
+            </select>
+        </div>
+
+        <!-- Двигун -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Двигун</label>
+            <select name="engine" id="engineSelect" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" {% if not selected_model %}disabled{% endif %}>
+                <option value="">Усі двигуни</option>
+                {% if engines %}
+                    {% for eng in engines %}
+                        <option value="{{ eng }}" {% if eng == selected_engine %}selected{% endif %}>{{ eng }}</option>
+                    {% endfor %}
+                {% endif %}
             </select>
         </div>
 
@@ -221,4 +248,48 @@ document.addEventListener("DOMContentLoaded", function() {
     carImages.forEach(img => observer.observe(img));
 });
 </script>
+<script>
+    document.getElementById("makeSelect").addEventListener("change", function() {
+        let make = this.value;
+        let modelSelect = document.getElementById("modelSelect");
+        let engineSelect = document.getElementById("engineSelect");
+    
+        modelSelect.innerHTML = '<option value="">Завантаження...</option>';
+        modelSelect.disabled = true;
+        engineSelect.innerHTML = '<option value="">Усі двигуни</option>';
+        engineSelect.disabled = true;
+    
+        if (make) {
+            fetch(`/get_models/${make}`)
+                .then(response => response.json())
+                .then(data => {
+                    modelSelect.innerHTML = '<option value="">Усі моделі</option>';
+                    data.models.forEach(m => {
+                        modelSelect.innerHTML += `<option value="${m}">${m}</option>`;
+                    });
+                    modelSelect.disabled = false;
+                });
+        }
+    });
+    
+    document.getElementById("modelSelect").addEventListener("change", function() {
+        let model = this.value;
+        let engineSelect = document.getElementById("engineSelect");
+    
+        engineSelect.innerHTML = '<option value="">Завантаження...</option>';
+        engineSelect.disabled = true;
+    
+        if (model) {
+            fetch(`/get_engines/${model}`)
+                .then(response => response.json())
+                .then(data => {
+                    engineSelect.innerHTML = '<option value="">Усі двигуни</option>';
+                    data.engines.forEach(e => {
+                        engineSelect.innerHTML += `<option value="${e}">${e}</option>`;
+                    });
+                    engineSelect.disabled = false;
+                });
+        }
+    });
+    </script>
 {% endblock %}
