@@ -173,10 +173,10 @@ time.sleep(10)
 
 
 conn = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='23032023',  
-    database='copart_db'   
+    host='d0n0ts1lly.mysql.pythonanywhere-services.com/',
+    user='d0n0ts1lly',
+    password='wirban-kesxoF-1mezty',  
+    database='d0n0ts1lly$bwauto'   
 )
 
 cursor = conn.cursor()

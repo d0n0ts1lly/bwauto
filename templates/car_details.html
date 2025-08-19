@@ -49,16 +49,51 @@
     .gradient-header {
         background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
     }
-
-@media (min-width: 768px) {
-    .carousel-item img {
-        height: 400px;  /* Большая высота на десктопах */
+    
+    /* Стилі для повідомлень про статус */
+    .status-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s, transform 0.3s;
+        max-width: 300px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-}
+    
+    .status-message.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .status-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    
+    .status-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    @media (min-width: 768px) {
+        .carousel-item img {
+            height: 400px;  /* Большая высота на десктопах */
+        }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
+<!-- Елемент для відображення повідомлень -->
+<div id="statusMessage" class="status-message"></div>
+
 <!-- Hero Header -->
 <section class="gradient-header text-white rounded-2xl p-8 shadow-2xl mb-8 overflow-hidden relative">
     <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -215,17 +250,72 @@
 </script>
 <script>
     function sharePage() {
-      if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          text: "Авто з США",
-          url: window.location.href
-        }).catch(err => console.log("Скасовано або помилка:", err));
-      } else {
-        // fallback: копіювання посилання
-        navigator.clipboard.writeText(window.location.href);
-        alert("Посилання скопійоване у буфер обміну!");
-      }
+        const baseUrl = "https://d0n0ts1lly.pythonanywhere.com";
+        const carId = "{{ car.id }}";
+        const shareUrl = `${baseUrl}/car/${carId}`;
+        const shareText = `Авто з США - {{ car.year }} {{ car.make }} {{ car.model }}\n${shareUrl}`;
+    
+        // Проверка Web Share API
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                text: shareText,
+                url: shareUrl
+            }).then(() => {
+                showStatus("Успішно поділилися!", "success");
+            }).catch(err => {
+                console.log("Share API не сработал, копируем ссылку:", err);
+                copyToClipboardFallback(shareUrl);
+            });
+        } else {
+            // Для десктопа: копируем ссылку
+            copyToClipboardFallback(shareUrl);
+        }
+    }
+    
+    // Функция для копирования ссылки и уведомления
+    function copyToClipboardFallback(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+            // Современный способ
+            navigator.clipboard.writeText(text)
+                .then(() => showStatus("Посилання скопійоване в буфер обміну!", "success"))
+                .catch(err => {
+                    console.log("Не удалось скопировать через clipboard API:", err);
+                    fallbackCopyTextArea(text);
+                });
+        } else {
+            // Старый способ
+            fallbackCopyTextArea(text);
+        }
+    }
+    
+    // Резервный метод для старых браузеров
+    function fallbackCopyTextArea(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            const successful = document.execCommand('copy');
+            showStatus(successful ? "Посилання скопійоване!" : "Не вдалося скопіювати", successful ? "success" : "error");
+        } catch (err) {
+            showStatus("Помилка при копіюванні", "error");
+        }
+        document.body.removeChild(textArea);
+    }
+    
+    // Показ уведомления
+    function showStatus(message, type) {
+        const statusElement = document.getElementById('statusMessage');
+        statusElement.textContent = message;
+        statusElement.className = `status-message ${type} show`;
+    
+        setTimeout(() => {
+            statusElement.className = "status-message";
+        }, 3000);
     }
     </script>
     

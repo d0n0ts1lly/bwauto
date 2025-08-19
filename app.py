@@ -18,9 +18,10 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    "DATABASE_URL", 
-    "mysql+pymysql://root:23032023@localhost:3306/copart_db"
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    "mysql+pymysql://d0n0ts1lly:wirban-kesxoF-1mezty@"
+    "d0n0ts1lly.mysql.pythonanywhere-services.com/"
+    "d0n0ts1lly$bwauto"
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
 app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
