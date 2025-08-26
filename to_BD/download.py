@@ -78,12 +78,12 @@ try:
 
     email_input = wait.until(EC.presence_of_element_located((By.ID, "username")))
     email_input.clear()
-    email_input.send_keys("worldauto@ukr.net")
+    email_input.send_keys("")
     time.sleep(5)
 
     password_input = wait.until(EC.presence_of_element_located((By.ID, "password")))
     password_input.clear()
-    password_input.send_keys("autocola1")
+    password_input.send_keys("")
     time.sleep(5)
 
     login_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.cprt-btn-yellow")))
