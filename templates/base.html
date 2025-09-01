@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="cVC4Gl-NxhrR4_4pr6f7AFgboraaDKOvrrK8M-oqeTs" />
     <title>{% block title %}Cars Project{% endblock %}</title>
     {% block head %}{% endblock %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +16,7 @@
             --secondary: #facc15;
             --secondary-hover: #eab308;
         }
-        
+
         .card-hover {
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             transform: translateY(0);
@@ -24,15 +25,15 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .nav-link-transition {
             transition: all 0.2s ease-in-out;
         }
-        
+
         .dropdown-enter {
             animation: fadeInDown 0.2s ease-out;
         }
-        
+
         .phone-button {
             box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
             transition: all 0.3s ease;
@@ -41,7 +42,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -73,7 +74,7 @@
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип" class="h-10 md:h-12">
                 </a>
             </div>
-    
+
             <!-- БУРГЕР КНОПКА -->
             <button id="menu-toggle" class="lg:hidden text-gray-800 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
@@ -82,16 +83,16 @@
                           d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-    
+
             <!-- НАВИГАЦИЯ -->
             <nav id="main-menu"
             class="absolute top-full left-0 w-full bg-white p-6 flex flex-col gap-6
                     transform -translate-y-4 opacity-0 scale-y-95 origin-top transition-all duration-300 ease-out pointer-events-none
                     lg:relative lg:top-0 lg:left-auto lg:w-auto lg:bg-transparent lg:p-0 lg:flex-row lg:items-center lg:gap-4
                     lg:transform-none lg:opacity-100 lg:scale-100 lg:pointer-events-auto">
-    
+
                 <div class="relative">
-                    <button id="partsDropdownButton" 
+                    <button id="partsDropdownButton"
                             class="w-full bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium flex items-center justify-center gap-1 nav-link-transition"
                             aria-haspopup="true" aria-expanded="false">
                       Запчастини
@@ -99,7 +100,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </button>
-                  
+
                     <!-- Выпадающее меню -->
                     <div id="partsDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
                       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="partsDropdownButton">
@@ -110,7 +111,7 @@
                 </div>
 
                 <div class="relative">
-                    <button id="carsDropdownButton" 
+                    <button id="carsDropdownButton"
                             class="w-full bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium flex items-center justify-center gap-1 nav-link-transition"
                             aria-haspopup="true" aria-expanded="false">
                       Купити Авто
@@ -118,7 +119,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </button>
-                  
+
                     <!-- Выпадающее меню -->
                     <div id="carsDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
                       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="carsDropdownButton">
@@ -128,12 +129,12 @@
                       </div>
                     </div>
                 </div>
-    
+
                 <a href="/calculator"
                    class="bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium text-center nav-link-transition">
                     Калькулятор
                 </a>
-    
+
                 <div class="flex items-center gap-3 p-3 rounded-lg lg:bg-transparent bg-gray-50">
                     <img src="{{ url_for('static', filename='images/telephone.png') }}" alt="Телефон" class="h-5">
                     <ul class="text-sm leading-tight space-y-1">
@@ -142,7 +143,7 @@
                         <li class="font-medium">(063) 84-84-004</li>
                     </ul>
                 </div>
-    
+
                 {% if session.get('username') %}
                     <a href="/cabinet?tab=likes"
                        class="bg-green-600 text-white px-4 py-2.5 rounded-lg hover:bg-green-700 transition font-medium text-center nav-link-transition">
@@ -178,7 +179,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Кнопка заказа звонка -->
     <button onclick="openModal()" class="phone-button bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-700 fixed bottom-6 right-6 z-50 flex items-center gap-2 animate__animated animate__fadeInUp">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -221,7 +222,7 @@
         // Мобильное меню
         const toggleBtn = document.getElementById('menu-toggle');
         const menu = document.getElementById('main-menu');
-    
+
         toggleBtn.addEventListener('click', () => {
             if(menu.classList.contains('opacity-0')) {
                 menu.classList.remove('-translate-y-4', 'opacity-0', 'scale-y-95', 'pointer-events-none');
@@ -260,9 +261,9 @@
     </script>
     <script>
         // Модальное окно
-        const chatId = "1312342943"; 
-        const botToken = "8357407082:AAHs_nYFp7kzGlebt6bYuYBnpuTqlqN3zRc"; 
-      
+        const chatId = "1312342943";
+        const botToken = "8357407082:AAHs_nYFp7kzGlebt6bYuYBnpuTqlqN3zRc";
+
         function openModal() {
             const modal = document.getElementById('callbackModal');
             modal.classList.remove('hidden');
@@ -271,7 +272,7 @@
                 modal.querySelector('div').classList.add('animate__zoomIn');
             }, 10);
         }
-      
+
         function closeModal() {
             const modal = document.getElementById('callbackModal');
             modal.querySelector('div').classList.remove('animate__zoomIn');
@@ -281,16 +282,16 @@
                 modal.classList.remove('animate__fadeIn', 'animate__fadeOut');
             }, 300);
         }
-      
+
         document.getElementById('callbackForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-      
+
             const form = e.target;
             const name = form.name.value.trim();
             const phone = form.phone.value.trim();
-      
+
             const message = `📞 Новий запит на дзвінок:\n\n👤 Імʼя: ${name}\n📱 Телефон: ${phone}`;
-      
+
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
             await fetch(url, {
                 method: "POST",
@@ -300,7 +301,7 @@
                     text: message
                 })
             });
-      
+
             alert("Дякуємо! Ми скоро звʼяжемось з вами.");
             closeModal();
             form.reset();

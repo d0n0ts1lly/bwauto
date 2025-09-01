@@ -48,7 +48,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-1">Марка</label>
             <select name="make" id="makeSelect" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
                 <option value="">Усі марки</option>
-                {% for make in makes %}
+                {% for make in makes|sort %}
                     <option value="{{ make }}" {% if make == selected_make %}selected{% endif %}>{{ make }}</option>
                 {% endfor %}
             </select>
@@ -69,14 +69,26 @@
 
         <!-- Рік -->
         <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Рік</label>
-            <select name="year" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
-                <option value="">Будь-який рік</option>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Рік від</label>
+            <select name="year_from" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                <option value="">Будь-який</option>
                 {% for y in years %}
-                    <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
+                    <option value="{{ y }}" {% if y == selected_year_from %}selected{% endif %}>{{ y }}</option>
                 {% endfor %}
             </select>
         </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Рік до</label>
+            <select name="year_to" class="w-full h-14 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                <option value="">Будь-який</option>
+                {% for y in years %}
+                    <option value="{{ y }}" {% if y == selected_year_to %}selected{% endif %}>{{ y }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+
 
         <!-- Двигун -->
         <div>
@@ -125,7 +137,7 @@
         <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
             {{ car.lot_number }}
         </div>
-        
+
         <!-- Car Image -->
         <div class="relative overflow-hidden h-48">
             <img src="https://pluto.bid.car/1-{{ car.lot_number }}/{{ car.year }}-{{ car.make }}-{{ car.model.split()[0] }}-{{ car.vin }}-1.jpg"
@@ -137,7 +149,7 @@
         <!-- Car Info -->
         <div class="p-4">
             <h3 class="text-lg font-bold text-gray-900 mb-1">{{ car.year }} {{ car.make }} {{ car.model }}</h3>
-            
+
             <!-- Specifications -->
             <div class="flex flex-wrap gap-2 my-3">
                 <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{{ car.engine }}</span>
@@ -178,7 +190,12 @@
 <!-- Pagination -->
 {% set filter_params = '' %}
 {% if selected_make %}{% set filter_params = filter_params + '&make=' + selected_make %}{% endif %}
-{% if selected_year %}{% set filter_params = filter_params + '&year=' + selected_year|string %}{% endif %}
+{% if selected_year_from %}
+    {% set filter_params = filter_params + '&year_from=' + (selected_year_from|string) %}
+{% endif %}
+{% if selected_year_to %}
+    {% set filter_params = filter_params + '&year_to=' + (selected_year_to|string) %}
+{% endif %}
 {% if min_price %}{% set filter_params = filter_params + '&min_price=' + min_price|string %}{% endif %}
 {% if max_price %}{% set filter_params = filter_params + '&max_price=' + max_price|string %}{% endif %}
 
@@ -233,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-    
+
     // Image lazy loading
     const carImages = document.querySelectorAll('.car-card img');
     const observer = new IntersectionObserver((entries) => {
@@ -244,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }, { threshold: 0.1 });
-    
+
     carImages.forEach(img => observer.observe(img));
 });
 </script>
@@ -253,12 +270,12 @@ document.addEventListener("DOMContentLoaded", function() {
         let make = this.value;
         let modelSelect = document.getElementById("modelSelect");
         let engineSelect = document.getElementById("engineSelect");
-    
+
         modelSelect.innerHTML = '<option value="">Завантаження...</option>';
         modelSelect.disabled = true;
         engineSelect.innerHTML = '<option value="">Усі двигуни</option>';
         engineSelect.disabled = true;
-    
+
         if (make) {
             fetch(`/get_models/${make}`)
                 .then(response => response.json())
@@ -271,14 +288,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
         }
     });
-    
+
     document.getElementById("modelSelect").addEventListener("change", function() {
         let model = this.value;
         let engineSelect = document.getElementById("engineSelect");
-    
+
         engineSelect.innerHTML = '<option value="">Завантаження...</option>';
         engineSelect.disabled = true;
-    
+
         if (model) {
             fetch(`/get_engines/${model}`)
                 .then(response => response.json())

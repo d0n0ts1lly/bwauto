@@ -1417,7 +1417,7 @@
             t = this.seaDelivery.filter(function (t) {
               return t.port_id === e.portId;
             });
-          return void 0 !== t[0] ? parseFloat(t[0][this.carType]) + 100 : 0;
+          return void 0 !== t[0] ? parseFloat(t[0][this.carType]) + 200 : 0;
         },
         selectedPortName: function () {
           var e = this,
@@ -1436,7 +1436,7 @@
             ? parseFloat(this.calculatorVarsProps.expeditMoto.val)
             : "mediumtruck" === this.carType
             ? parseFloat(this.calculatorVarsProps.expeditTruck.val)
-            : parseFloat(this.calculatorVarsProps.expedit.val);
+            : parseFloat(this.calculatorVarsProps.expedit.val)+200;
         },
         sublotPrice: function () {
           return this.isSublot
@@ -1448,7 +1448,7 @@
             case "moto":
               return parseFloat(this.calculatorVarsProps.certificationMoto.val);
             default:
-              return parseFloat(this.calculatorVarsProps.certification.val);
+              return parseFloat(this.calculatorVarsProps.certification.val)-30;
           }
         },
         kyivDelivery: function () {
@@ -1458,10 +1458,10 @@
             ? parseFloat(this.calculatorVarsProps.heavyMinivanDelivery.val)
             : ["mediumtruck"].includes(this.carType)
             ? parseFloat(this.calculatorVarsProps.mediumtruckDelivery.val)
-            : parseFloat(this.calculatorVarsProps.kyivDelivery.val);
+            : parseFloat(this.calculatorVarsProps.kyivDelivery.val)+125;
         },
         services: function () {
-          return parseFloat(this.calculatorVarsProps.services.val) + 100;
+          return parseFloat(this.calculatorVarsProps.services.val) + 600;
         },
         register: function () {
           if (3 === this.fuelId)

@@ -18,11 +18,12 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    "DATABASE_URL", 
-    "mysql+pymysql://root:23032023@localhost:3306/copart_db"
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    "mysql+pymysql://d0n0ts1lly:diwtas-hEnwyf-8rafha@"
+    "d0n0ts1lly.mysql.pythonanywhere-services.com/"
+    "d0n0ts1lly$bwauto"
 )
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
 app.secret_key = 'your_secret_key'
 db = SQLAlchemy(app)
@@ -65,7 +66,7 @@ class Car(db.Model):
 
     likes = db.relationship('Like', back_populates='car', lazy=True)
 
-class User(db.Model, UserMixin): 
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
@@ -348,7 +349,8 @@ def cars():
     make_filter = request.args.get('make')
     model_filter = request.args.get('model')
     engine_filter = request.args.get('engine')
-    year_filter = request.args.get('year', type=int)
+    year_from = request.args.get('year_from', type=int)
+    year_to = request.args.get('year_to', type=int)
     min_price = request.args.get('min_price', type=int)
     max_price = request.args.get('max_price', type=int)
 
@@ -360,8 +362,10 @@ def cars():
         query = query.filter(Car.model.like(f"{model_filter}%"))
     if engine_filter:
         query = query.filter(Car.engine == engine_filter)
-    if year_filter:
-        query = query.filter(Car.year == year_filter)
+    if year_from:
+        query = query.filter(Car.year >= int(year_from))
+    if year_to:
+        query = query.filter(Car.year <= int(year_to))
 
     # сортировка
     query = query.order_by(
@@ -444,7 +448,8 @@ def cars():
         selected_make=make_filter,
         selected_model=model_filter,
         selected_engine=engine_filter,
-        selected_year=year_filter,
+        selected_year_from=year_from,
+        selected_year_to=year_to,
         min_price=min_price,
         max_price=max_price,
         user_liked_car_ids=user_liked_car_ids
@@ -850,7 +855,7 @@ def toggle_like(car_id):
     # Якщо це AJAX-запит — повертаємо JSON
     if request.headers.get("X-Requested-With") == "XMLHttpRequest":
         return jsonify({"status": "ok", "action": action})
-    
+
     # Інакше — звичайний редірект
     return redirect(request.referrer)
 

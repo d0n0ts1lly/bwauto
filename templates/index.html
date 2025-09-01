@@ -53,14 +53,14 @@
             <p class="mt-4 text-lg md:text-xl font-light opacity-90">
                 Авто під ключ з США, Європи, Китаю та Південної Кореї
             </p>
-            <a href="{{ url_for('cars') }}" 
+            <a href="{{ url_for('cars') }}"
                class="mt-6 inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition transform duration-300">
                 Вибрати авто
             </a>
         </div>
         <div class="hidden md:block text-center">
-            <img src="{{ url_for('static', filename='images/auto.png') }}" 
-                 alt="Авто" 
+            <img src="{{ url_for('static', filename='images/auto.png') }}"
+                 alt="Авто"
                  class="rounded-xl shadow-xl transform hover:scale-105 transition duration-300 w-full max-w-md">
         </div>
     </div>
@@ -76,10 +76,10 @@
       <span class="absolute left-0 right-0 top-1/2 h-0.5 z-0"></span>
   </h2>
   <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-      
+
       <!-- Toyota -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="https://politiki.net.ua/wp-content/uploads/novaja-toyota-crown-2023-avto-novosti-0c19682.jpg" alt="Toyota" class="w-full h-48 object-cover">
+          <img src="https://carsvital.org/assets/cache/images/cars/toyota/camry/toyota-camry-2023/photo_2023-04-12_11-15-23-876x535-131.jpg" alt="Toyota" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">TOYOTA</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -101,7 +101,7 @@
 
       <!-- Lexus -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="https://lh3.googleusercontent.com/proxy/JmvcJMd9Sg32lb4FQM_4PAjif0TkapNeE8N8A8--bCsGuw9PuwnDTd6JPFozp0KfUEuu7l0prHsRfWFHMPV9TLW3HA_qK5pja10NpR3W3bNBRqCZT33TWiEIlN3vaQm7cVKOQCDhr9N3qJyAvj8sYg" alt="Lexus" class="w-full h-48 object-cover">
+          <img src="https://grandcar.kz/wp-content/uploads/2024/09/20240911001031-82868d2e-b9ed-4c74-809b-dd2f28d7520c-4.jpg" alt="Lexus" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">LEXUS</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -123,7 +123,7 @@
 
       <!-- BMW -->
       <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="https://cdn4.riastatic.com/photosnew/auto/photo/bmw_3-series__577261669f.jpg" alt="BMW" class="w-full h-48 object-cover">
+          <img src="https://cdn1.riastatic.com/photosnew/auto/photo/bmw_7-series__548452141f.jpg" alt="BMW" class="w-full h-48 object-cover">
           <div class="p-5">
               <h4 class="text-xl font-bold text-center text-green-700">BMW</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
@@ -154,7 +154,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- 1 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="{{ url_for('static', filename='images/car1.jpg') }}" alt="BMW X5" class="w-full h-64 object-cover">
+            <img src="https://cs.copart.com/v1/AUTH_svc.pdoc00001/ids-c-prod-lpp/0825/260d332f82fd4fe79daec0c6a8c0a250_ful.jpg" alt="BMW X5" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
                 <h5 class="text-xl font-bold text-gray-900">BMW X5</h5>
                 <div class="flex flex-wrap gap-2">
@@ -170,7 +170,7 @@
 
         <!-- 2 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="{{ url_for('static', filename='images/car2.jpg') }}" alt="Mercedes-Benz GLE" class="w-full h-64 object-cover">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Mercedes-Benz_GLE_350_d_4MATIC_AMG_Line_%28V_167%29_–_h_18042021.jpg" alt="Mercedes-Benz GLE" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
                 <h5 class="text-xl font-bold text-gray-900">Mercedes-Benz GLE</h5>
                 <div class="flex flex-wrap gap-2">
@@ -186,7 +186,7 @@
 
         <!-- 3 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="{{ url_for('static', filename='images/car3.jpg') }}" alt="Audi Q7" class="w-full h-64 object-cover">
+            <img src="https://i.infocar.ua/i/2/5949/114108/1920x.jpg" alt="Audi Q7" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
                 <h5 class="text-xl font-bold text-gray-900">Audi Q7</h5>
                 <div class="flex flex-wrap gap-2">
@@ -343,28 +343,16 @@
             <h5 class="text-xl font-bold mb-2">Дилер</h5>
             <div class="text-green-600 font-bold text-lg mb-4">Партнерські умови</div>
             <ul class="text-gray-700 space-y-3 mb-6 text-left flex-1">
-                <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                <li class="flex items-start justify-center">
                     <span>Отримайте</span>
                 </li>
-                <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                <li class="flex items-start justify-center">
                     <span>партнерську</span>
                 </li>
-                <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                <li class="flex items-start justify-center">
                     <span>пропозицію від компанії</span>
                 </li>
-                <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                <li class="flex items-start justify-center">
                     <span>Best World Auto</span>
                 </li>
             </ul>
@@ -464,8 +452,8 @@
 <section class="container mx-auto my-16 px-4">
   <div class="bg-white rounded-xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div class="p-0">
-          <img src="https://media.istockphoto.com/id/486570435/ru/фото/кран-вверх-контейнер-в-двор.jpg?s=612x612&w=0&k=20&c=FF8Kf4G7YmOg3bH6kLS5stvnOl05FK2gfvXCUOuQZOs=" 
-               alt="Логістика" 
+          <img src="https://media.istockphoto.com/id/486570435/ru/фото/кран-вверх-контейнер-в-двор.jpg?s=612x612&w=0&k=20&c=FF8Kf4G7YmOg3bH6kLS5stvnOl05FK2gfvXCUOuQZOs="
+               alt="Логістика"
                class="w-full h-full object-cover rounded-l-xl">
       </div>
       <div class="p-8">

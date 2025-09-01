@@ -10,55 +10,90 @@
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     .carousel-item img {
         object-fit: cover;
         height: 300px;
         width: 100%;
     }
-    
+
     .info-card {
         background: white;
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
     }
-    
+
     .info-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
-    
+
     .detail-item {
         padding: 12px;
         border-bottom: 1px solid #f0f0f0;
     }
-    
+
     .detail-item:last-child {
         border-bottom: none;
     }
-    
+
     .like-btn {
         transition: all 0.3s ease;
     }
-    
+
     .like-btn:hover {
         transform: scale(1.05);
     }
-    
+
     .gradient-header {
         background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
     }
 
-@media (min-width: 768px) {
-    .carousel-item img {
-        height: 400px;  /* Большая высота на десктопах */
+    /* Стилі для повідомлень про статус */
+    .status-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s, transform 0.3s;
+        max-width: 300px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-}
+
+    .status-message.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .status-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .status-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    @media (min-width: 768px) {
+        .carousel-item img {
+            height: 400px;  /* Большая высота на десктопах */
+        }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
+<!-- Елемент для відображення повідомлень -->
+<div id="statusMessage" class="status-message"></div>
+
 <!-- Hero Header -->
 <section class="gradient-header text-white rounded-2xl p-8 shadow-2xl mb-8 overflow-hidden relative">
     <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -96,15 +131,15 @@
                 <h2 class="text-2xl font-bold text-gray-900">{{ car.year }} {{ car.make }} {{ car.model }}</h2>
                 <p class="text-green-600 font-semibold mt-1">Ставка зараз: {{ car.current_bid }}</p>
             </div>
-            
+
             <div class="flex items-center gap-2">
                 {% if current_user.is_authenticated %}
-                <button onclick="sharePage()" 
+                <button onclick="sharePage()"
                         class="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition ml-2 sm:ml-0">
                     <span>🔗</span>
                     <span class="hidden sm:inline">Поділитись</span>
                 </button>
-                
+
                 <form action="{{ url_for('toggle_like', car_id=car.id) }}" method="post">
                     <button type="submit" class="like-btn border border-green-600 text-green-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 transition">
                         {% if car.id in user_liked_car_ids %}
@@ -196,16 +231,16 @@
             img.onload = function () {
                 const item = document.createElement("div");
                 item.className = "carousel-item" + (inner.children.length === 0 ? " active" : "");
-                
+
                 const imgContainer = document.createElement("div");
                 imgContainer.className = "relative h-full w-full";
-                
+
                 const imgTag = document.createElement("img");
                 imgTag.src = url;
                 imgTag.className = "w-full h-full object-cover";
                 imgTag.alt = `Photo ${i}`;
                 imgTag.loading = "lazy";
-                
+
                 imgContainer.appendChild(imgTag);
                 item.appendChild(imgContainer);
                 inner.appendChild(item);
@@ -214,19 +249,74 @@
     });
 </script>
 <script>
-    function sharePage() {
-      if (navigator.share) {
+function sharePage() {
+    const baseUrl = "https://d0n0ts1lly.pythonanywhere.com";
+    const carId = "{{ car.id }}";
+    const shareUrl = `${baseUrl}/car/${carId}`;
+    const shareText = `Авто з США - {{ car.year }} {{ car.make }} {{ car.model }}\n${shareUrl}`;
+
+    // Проверка Web Share API
+    if (navigator.share) {
         navigator.share({
-          title: document.title,
-          text: "Авто з США",
-          url: window.location.href
-        }).catch(err => console.log("Скасовано або помилка:", err));
-      } else {
-        // fallback: копіювання посилання
-        navigator.clipboard.writeText(window.location.href);
-        alert("Посилання скопійоване у буфер обміну!");
-      }
+            title: document.title,
+            text: shareText,
+            url: shareUrl
+        }).then(() => {
+            showStatus("Успішно поділилися!", "success");
+        }).catch(err => {
+            console.log("Share API не сработал, копируем ссылку:", err);
+            copyToClipboardFallback(shareUrl);
+        });
+    } else {
+        // Для десктопа: копируем ссылку
+        copyToClipboardFallback(shareUrl);
     }
-    </script>
-    
+}
+
+// Функция для копирования ссылки и уведомления
+function copyToClipboardFallback(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        // Современный способ
+        navigator.clipboard.writeText(text)
+            .then(() => showStatus("Посилання скопійоване в буфер обміну!", "success"))
+            .catch(err => {
+                console.log("Не удалось скопировать через clipboard API:", err);
+                fallbackCopyTextArea(text);
+            });
+    } else {
+        // Старый способ
+        fallbackCopyTextArea(text);
+    }
+}
+
+// Резервный метод для старых браузеров
+function fallbackCopyTextArea(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        const successful = document.execCommand('copy');
+        showStatus(successful ? "Посилання скопійоване!" : "Не вдалося скопіювати", successful ? "success" : "error");
+    } catch (err) {
+        showStatus("Помилка при копіюванні", "error");
+    }
+    document.body.removeChild(textArea);
+}
+
+// Показ уведомления
+function showStatus(message, type) {
+    const statusElement = document.getElementById('statusMessage');
+    statusElement.textContent = message;
+    statusElement.className = `status-message ${type} show`;
+
+    setTimeout(() => {
+        statusElement.className = "status-message";
+    }, 3000);
+}
+</script>
+
 {% endblock %}
