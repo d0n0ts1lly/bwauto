@@ -18,11 +18,13 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
+"""app.config['SQLALCHEMY_DATABASE_URI'] = (
     "mysql+pymysql://d0n0ts1lly:diwtas-hEnwyf-8rafha@"
     "d0n0ts1lly.mysql.pythonanywhere-services.com/"
     "d0n0ts1lly$bwauto"
-)
+)"""
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:23032023@localhost:3306/copart_db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
 app.secret_key = 'your_secret_key'
