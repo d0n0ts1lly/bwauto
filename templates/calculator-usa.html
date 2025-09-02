@@ -173,14 +173,18 @@
           <!-- Переделанный section-heading в новом стиле -->
           <section class="gradient-bg text-white rounded-2xl p-8 md:p-12 shadow-2xl mb-8 overflow-hidden relative">
             <div class="max-w-4xl mx-auto text-center relative z-10">
-              <!-- <figure class="section-heading__img mx-auto mb-4">
-                <img src="{{ url_for('static', filename='images/img/usa-flag-color.png') }}" alt="" class="h-16" />
-              </figure>-->
-              <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 animate-fadeIn">
-                Калькулятор BestWorldAuto
-              </h1>
+              <!-- Заголовок с флажком -->
+              <div class="flex items-center justify-center gap-3 mb-4 animate-fadeIn">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                  Калькулятор BestWorldAuto
+                </h1>
+                <img src="{{ url_for('static', filename='images/img/usa-flag-color.png') }}" 
+                     alt="Флаг" 
+                     class="h-10 w-auto rounded shadow-md" />
+              </div>
+          
               <p class="text-xl opacity-90 mb-6">
-                Точний разрахунок вартості доставки авто із США
+                Точний розрахунок вартості доставки авто із США
               </p>
               <div class="absolute bottom-0 left-0 right-0 w-full h-16 bg-gradient-to-t from-green-600/10 to-transparent"></div>
             </div>

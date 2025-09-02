@@ -882,9 +882,17 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/calculator')
-def calculator():
-    return render_template("calculator.html")
+@app.route('/calculator-usa')
+def calculator_usa():
+    return render_template("calculator-usa.html")
+
+@app.route('/calculator-canada')
+def calculator_canada():
+    return render_template("calculator-canada.html")
+
+@app.route('/calculator-korea')
+def calculator_korea():
+    return render_template("calculator-korea.html")
 
 
 if __name__ == "__main__":
