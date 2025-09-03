@@ -130,10 +130,25 @@
                     </div>
                 </div>
 
-                <a href="/calculator-usa"
-                   class="bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium text-center nav-link-transition">
-                    Калькулятор
-                </a>
+                <div class="relative">
+                    <button id="calcDropdownButton"
+                            class="w-full bg-yellow-400 text-black px-4 py-2.5 rounded-lg hover:bg-yellow-500 transition font-medium flex items-center justify-center gap-1 nav-link-transition"
+                            aria-haspopup="true" aria-expanded="false">
+                      Калькулятор
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </button>
+
+                    <!-- Выпадающее меню -->
+                    <div id="calcDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
+                      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="calcDropdownButton">
+                        <a href="/calculator-usa" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">США</a>
+                        <a href="/calculator-canada" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Канада</a>
+                        <a href="/calculator-korea" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Корея</a>
+                      </div>
+                    </div>
+                </div>
 
                 <div class="flex items-center gap-3 p-3 rounded-lg lg:bg-transparent bg-gray-50">
                     <img src="{{ url_for('static', filename='images/telephone.png') }}" alt="Телефон" class="h-5">
@@ -238,15 +253,25 @@
         const partsMenu = document.getElementById('partsDropdownMenu');
         const carsButton = document.getElementById('carsDropdownButton');
         const carsMenu = document.getElementById('carsDropdownMenu');
+        const calcButton = document.getElementById('calcDropdownButton');
+        const calcMenu = document.getElementById('calcDropdownMenu');
 
         partsButton.addEventListener('click', () => {
             partsMenu.classList.toggle('hidden');
             carsMenu.classList.add('hidden');
+            calcMenu.classList.add('hidden');
         });
 
         carsButton.addEventListener('click', () => {
             carsMenu.classList.toggle('hidden');
             partsMenu.classList.add('hidden');
+            calcMenu.classList.add('hidden');
+        });
+
+        calcButton.addEventListener('click', () => {
+            calcMenu.classList.toggle('hidden');
+            partsMenu.classList.add('hidden');
+            carsMenu.classList.add('hidden');
         });
 
         // Закрытие меню при клике вне
@@ -256,6 +281,9 @@
             }
             if (!carsButton.contains(event.target) && !carsMenu.contains(event.target)) {
                 carsMenu.classList.add('hidden');
+            }
+            if (!calcButton.contains(event.target) && !calcMenu.contains(event.target)) {
+                calcMenu.classList.add('hidden');
             }
         });
     </script>

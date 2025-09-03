@@ -132,7 +132,7 @@
                 <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Гібрид</p></div>
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
-                    <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
+                    <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Передній</p></div>
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2020</p></div>
                 </div>
                 <div class="text-sm text-gray-700 mt-4 space-y-2">
@@ -146,67 +146,67 @@
             </div>
         </div>
   
-        <!-- Toyota 2 -->
+        <!-- Audi -->
         <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-          <img src="https://carsvital.org/assets/cache/images/cars/toyota/camry/toyota-camry-2023/photo_2023-04-12_11-15-23-876x535-131.jpg" alt="Toyota" class="w-full h-48 object-cover">
+          <img src="{{ url_for('static', filename='images/audi/2.jpg') }}" alt="Audi" class="w-full h-48 object-cover">
           <div class="p-5">
-              <h4 class="text-xl font-bold text-center text-green-700">TOYOTA RAV4</h4>
+              <h4 class="text-xl font-bold text-center text-green-700">AUDI A4</h4>
               <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
                 <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Бензин</p></div>
                 <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
                 <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
-                <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2023</p></div>
+                <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2018</p></div>
             </div>
               <div class="text-sm text-gray-700 mt-4 space-y-2">
-                  <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
-                  <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">...</span></p>
-                  <p class="flex justify-between"><span>Мито:</span> <span class="font-medium">...</span></p>
+                  <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$5,375</span></p>
+                  <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,245</span></p>
+                  <p class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$3,641</span></p>
               </div>
-              <button onclick="openModaly('toyota2-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+              <button onclick="openModaly('audi-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                   Детальніше
               </button>
           </div>
       </div>
   
-        <!-- Lexus -->
+        <!-- Kia -->
         <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
-            <img src="https://grandcar.kz/wp-content/uploads/2024/09/20240911001031-82868d2e-b9ed-4c74-809b-dd2f28d7520c-4.jpg" alt="Lexus" class="w-full h-48 object-cover">
+            <img src="{{ url_for('static', filename='images/kia/1.jpg') }}" alt="Kia" class="w-full h-48 object-cover">
             <div class="p-5">
-                <h4 class="text-xl font-bold text-center text-green-700">LEXUS RX</h4>
+                <h4 class="text-xl font-bold text-center text-green-700">KIA SORENTO</h4>
                 <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Бензин</p></div>
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
-                    <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2023</p></div>
+                    <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2022</p></div>
                 </div>
                 <div class="text-sm text-gray-700 mt-4 space-y-2">
-                    <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
-                    <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
-                    <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
+                    <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$8,700</span></p>
+                    <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,866</span></p>
+                    <p class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$4,272</span></p>
                 </div>
-                <button onclick="openModaly('lexus-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <button onclick="openModaly('kia-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                     Детальніше
                 </button>
             </div>
         </div>
   
-        <!-- BMW -->
+        <!-- WV -->
         <div class="car-card bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
             <img src="https://cdn1.riastatic.com/photosnew/auto/photo/bmw_7-series__548452141f.jpg" alt="BMW" class="w-full h-48 object-cover">
             <div class="p-5">
-                <h4 class="text-xl font-bold text-center text-green-700">BMW 7 SERIES</h4>
+                <h4 class="text-xl font-bold text-center text-green-700">VOLKSWAGEN TIGUAN</h4>
                 <div class="grid grid-cols-4 gap-3 text-gray-600 text-sm mt-4 text-center">
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/fuel-icon.png') }}" alt="Бензин" class="mx-auto h-6"><p>Бензин</p></div>
                     <div class="spec-item"><img src="{{ url_for('static', filename='images/gearbox-icon.png') }}" alt="Автомат" class="mx-auto h-6"><p>Автомат</p></div>
-                    <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Повний</p></div>
-                    <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2023</p></div>
+                    <div class="spec-item"><img src="{{ url_for('static', filename='images/drive-icon.png') }}" alt="Повний" class="mx-auto h-6"><p>Передній</p></div>
+                    <div class="spec-item"><img src="{{ url_for('static', filename='images/year-icon.png') }}" alt="2023" class="mx-auto h-6"><p>2020</p></div>
                 </div>
                 <div class="text-sm text-gray-700 mt-4 space-y-2">
-                    <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">...</span></p>
-                    <p class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">...</span></p>
-                    <p class="flex justify-between"><span>Страхування:</span> <span class="font-medium">...</span></p>
+                    <p class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$3,400</span></p>
+                    <p class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,028</span></p>
+                    <p class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$2,674</span></p>
                 </div>
-                <button onclick="openModaly('bmw-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <button onclick="openModaly('wv-modal')" class="mt-6 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-medium">
                     Детальніше
                 </button>
             </div>
@@ -224,16 +224,16 @@
         
         <!-- Вкладки для переключения между состояниями -->
         <div class="flex border-b border-gray-200">
-          <button id="after-tab" class="tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
+          <button id="after-tab" class="after-tab tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
             Після купівлі
           </button>
-          <button id="before-tab" class="tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
+          <button id="before-tab" class="before-tab tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
             До купівлі (аукціон)
           </button>
         </div>
         
         <!-- Карусель для состояния после покупки -->
-        <div id="after-carousel" class="carousel-container active">
+        <div id="after-carousel" class="after-carousel carousel-container active">
           <div id="carCarouselAfter" class="carousel slide" data-bs-ride="carousel">
             <!-- Индикаторы -->
             <div class="carousel-indicators">
@@ -264,7 +264,7 @@
         </div>
         
         <!-- Карусель для состояния до покупки (аукцион) -->
-        <div id="before-carousel" class="carousel-container hidden">
+        <div id="before-carousel" class="before-carousel carousel-container hidden">
           <div id="carCarouselBefore" class="carousel slide" data-bs-ride="carousel">
             <!-- Индикаторы -->
             <div class="carousel-indicators">
@@ -365,7 +365,7 @@
               <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">46,820 mil</span></li>
               <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L, 176 к.с.</span></li>
               <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
-              <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
+              <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Передній</span></li>
               <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Гібрид</span></li>
             </ul>
           </div>
@@ -402,49 +402,49 @@
     </div>
   </div>
   
-  <!-- Modal for Toyota 2 -->
-<div id="toyota2-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <!-- Modal for Audi -->
+<div id="audi-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
     <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
       <div class="relative">
-        <button onclick="closeModaly('toyota1-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
+        <button onclick="closeModaly('audi-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
           <i class="fas fa-times text-green-700 text-xl"></i>
         </button>
         
         <!-- Вкладки для переключения между состояниями -->
         <div class="flex border-b border-gray-200">
-          <button id="after-tab" class="tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
+          <button id="after-tab" class="after-tab tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
             Після купівлі
           </button>
-          <button id="before-tab" class="tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
+          <button id="before-tab" class="before-tab tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
             До купівлі (аукціон)
           </button>
         </div>
         
         <!-- Карусель для состояния после покупки -->
-        <div id="after-carousel" class="carousel-container active">
-          <div id="carCarouselAfter" class="carousel slide" data-bs-ride="carousel">
+        <div id="after-carousel" class="after-carousel carousel-container active">
+          <div id="audicarCarouselAfter" class="carousel slide" data-bs-ride="carousel">
             <!-- Индикаторы -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+              <button type="button" data-bs-target="#audicarCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+              <button type="button" data-bs-target="#audicarCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
             </div>
           
             <!-- Слайды -->
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
+                <img src="{{ url_for('static', filename='images/audi/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+                <img src="{{ url_for('static', filename='images/audi/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
               </div>
             </div>
           
             <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#audicarCarouselAfter" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Назад</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#audicarCarouselAfter" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Вперед</span>
             </button>
@@ -452,78 +452,114 @@
         </div>
         
         <!-- Карусель для состояния до покупки (аукцион) -->
-        <div id="before-carousel" class="carousel-container hidden">
-          <div id="carCarouselBefore" class="carousel slide" data-bs-ride="carousel">
+        <div id="before-carousel" class="before-carousel carousel-container hidden">
+          <div id="audicarCarouselBefore" class="carousel slide" data-bs-ride="carousel">
             <!-- Индикаторы -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
+              <button type="button" data-bs-target="#audiaudicarCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="14" aria-label="Слайд 15"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="15" aria-label="Слайд 16"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="16" aria-label="Слайд 17"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="17" aria-label="Слайд 18"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="18" aria-label="Слайд 19"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="19" aria-label="Слайд 20"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="20" aria-label="Слайд 21"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="21" aria-label="Слайд 22"></button>
+              <button type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide-to="22" aria-label="Слайд 23"></button>
             </div>
           
             <!-- Слайды -->
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+                <img src="{{ url_for('static', filename='images/audi/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+                <img src="{{ url_for('static', filename='images/audi/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+                <img src="{{ url_for('static', filename='images/audi/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+                <img src="{{ url_for('static', filename='images/audi/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+                <img src="{{ url_for('static', filename='images/audi/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+                <img src="{{ url_for('static', filename='images/audi/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+                <img src="{{ url_for('static', filename='images/audi/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+                <img src="{{ url_for('static', filename='images/audi/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+                <img src="{{ url_for('static', filename='images/audi/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/17.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/18.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/19.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/20.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/21.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/22.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/23.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/24.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/audi/25.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
               </div>
             </div>
           
             <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Назад</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#audicarCarouselBefore" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Вперед</span>
             </button>
@@ -534,8 +570,8 @@
             <h4 class="font-semibold text-yellow-700 mb-2">Інформація з аукціону</h4>
             <ul class="text-sm space-y-1">
               <li class="flex justify-between"><span>Пошкодженя:</span> <span class="font-medium">Передня частина</span></li>
-              <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">IAAI</span></li>
-              <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$5,450</span></li>
+              <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">Copart</span></li>
+              <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$5,375</span></li>
             </ul>
           </div>
         </div>
@@ -543,30 +579,30 @@
       
       <!-- Контент после покупки -->
       <div id="after-content" class="p-6 overflow-y-auto max-h-[50vh]">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020</h3>
+        <h3 class="text-2xl font-bold text-green-700 mb-4">AUDI A4 2018</h3>
         
         <div class="grid grid-cols-2 gap-4 mb-6">
           <div class="bg-gray-50 p-4 rounded-lg">
             <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2020</span></li>
-              <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">46,820 mil</span></li>
-              <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L, 176 к.с.</span></li>
+              <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2018</span></li>
+              <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">53,815 mil</span></li>
+              <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.0L, 252 к.с.</span></li>
               <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
               <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
-              <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Гібрид</span></li>
+              <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Бензин</span></li>
             </ul>
           </div>
           
           <div class="bg-gray-50 p-4 rounded-lg">
             <h4 class="font-semibold text-green-700 mb-2">Фінансові деталі</h4>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$5,450</span></li>
+              <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$5,375</span></li>
               <li class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">$879</span></li>           
-              <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,297</span></li>
-              <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$3,521</span></li>
+              <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,245</span></li>
+              <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$3,641</span></li>
               <li class="flex justify-between"><span>Послуги компанії:</span> <span class="font-medium">за тарифом</span></li>
-              <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$13,147</span></li>
+              <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$13,140</span></li>
             </ul>
           </div>
         </div>
@@ -579,7 +615,7 @@
       
       <!-- Контент до покупки -->
       <div id="before-content" class="p-6 overflow-y-auto max-h-[50vh] hidden">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020 (аукціон)</h3>
+        <h3 class="text-2xl font-bold text-green-700 mb-4">AUDI A4 2018 (аукціон)</h3>
         
         <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
           <h4 class="font-semibold text-green-700 mb-2">Примітка</h4>
@@ -591,384 +627,486 @@
   </div>
   
   
-  <!-- Modal for Lexus -->
-<!-- Modal for Toyota 1 -->
-<div id="lexus-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
-    <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
-      <div class="relative">
-        <button onclick="closeModaly('toyota1-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
-          <i class="fas fa-times text-green-700 text-xl"></i>
+<!-- Modal Kia-->
+<div id="kia-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
+    <div class="relative">
+      <button onclick="closeModaly('kia-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
+        <i class="fas fa-times text-green-700 text-xl"></i>
+      </button>
+      
+      <!-- Вкладки для переключения между состояниями -->
+      <div class="flex border-b border-gray-200">
+        <button id="after-tab" class="after-tab tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
+          Після купівлі
         </button>
-        
-        <!-- Вкладки для переключения между состояниями -->
-        <div class="flex border-b border-gray-200">
-          <button id="after-tab" class="tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
-            Після купівлі
-          </button>
-          <button id="before-tab" class="tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
-            До купівлі (аукціон)
-          </button>
-        </div>
-        
-        <!-- Карусель для состояния после покупки -->
-        <div id="after-carousel" class="carousel-container active">
-          <div id="carCarouselAfter" class="carousel slide" data-bs-ride="carousel">
-            <!-- Индикаторы -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
-            </div>
-          
-            <!-- Слайды -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
-              </div>
-            </div>
-          
-            <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Назад</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Вперед</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Карусель для состояния до покупки (аукцион) -->
-        <div id="before-carousel" class="carousel-container hidden">
-          <div id="carCarouselBefore" class="carousel slide" data-bs-ride="carousel">
-            <!-- Индикаторы -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
-            </div>
-          
-            <!-- Слайды -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-            </div>
-          
-            <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Назад</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Вперед</span>
-            </button>
-          </div>
-          
-          <!-- Информация об аукционе -->
-          <div class="bg-yellow-50 p-4 border-b border-yellow-200">
-            <h4 class="font-semibold text-yellow-700 mb-2">Інформація з аукціону</h4>
-            <ul class="text-sm space-y-1">
-              <li class="flex justify-between"><span>Пошкодженя:</span> <span class="font-medium">Передня частина</span></li>
-              <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">IAAI</span></li>
-              <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$5,450</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Контент после покупки -->
-      <div id="after-content" class="p-6 overflow-y-auto max-h-[50vh]">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020</h3>
-        
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
-            <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2020</span></li>
-              <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">46,820 mil</span></li>
-              <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L, 176 к.с.</span></li>
-              <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
-              <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
-              <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Гібрид</span></li>
-            </ul>
-          </div>
-          
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-semibold text-green-700 mb-2">Фінансові деталі</h4>
-            <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$5,450</span></li>
-              <li class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">$879</span></li>           
-              <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,297</span></li>
-              <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$3,521</span></li>
-              <li class="flex justify-between"><span>Послуги компанії:</span> <span class="font-medium">за тарифом</span></li>
-              <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$13,147</span></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-          <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
-          <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
-        </div>
-      </div>
-      
-      <!-- Контент до покупки -->
-      <div id="before-content" class="p-6 overflow-y-auto max-h-[50vh] hidden">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020 (аукціон)</h3>
-        
-        <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
-          <h4 class="font-semibold text-green-700 mb-2">Примітка</h4>
-          <p class="text-sm">На цій вкладці відображаються фотографії та інформація з аукціону на момент покупки автомобіля. Характеристики та фінансові деталі стосуються поточного стану після всіх робіт і підготовки.</p>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-  
-  <!-- Modal for BMW -->
- <!-- Modal for Toyota 1 -->
-<div id="toyota1-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
-    <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
-      <div class="relative">
-        <button onclick="closeModaly('toyota1-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
-          <i class="fas fa-times text-green-700 text-xl"></i>
+        <button id="before-tab" class="before-tab tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
+          До купівлі (аукціон)
         </button>
+      </div>
+      
+      <!-- Карусель для состояния после покупки -->
+      <div id="after-carousel" class="after-carousel carousel-container active">
+        <div id="kiacarCarouselAfter" class="carousel slide" data-bs-ride="carousel">
+          <!-- Индикаторы -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+            <button type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+            <button type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide-to="4" aria-label="Слайд 5"></button>
+          </div>
         
-        <!-- Вкладки для переключения между состояниями -->
-        <div class="flex border-b border-gray-200">
-          <button id="after-tab" class="tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
-            Після купівлі
+          <!-- Слайды -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ url_for('static', filename='images/kia/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+            </div>
+          </div>
+        
+          <!-- Кнопки управления -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Назад</span>
           </button>
-          <button id="before-tab" class="tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
-            До купівлі (аукціон)
+          <button class="carousel-control-next" type="button" data-bs-target="#kiacarCarouselAfter" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Вперед</span>
           </button>
-        </div>
-        
-        <!-- Карусель для состояния после покупки -->
-        <div id="after-carousel" class="carousel-container active">
-          <div id="carCarouselAfter" class="carousel slide" data-bs-ride="carousel">
-            <!-- Индикаторы -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
-            </div>
-          
-            <!-- Слайды -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
-              </div>
-            </div>
-          
-            <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Назад</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselAfter" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Вперед</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Карусель для состояния до покупки (аукцион) -->
-        <div id="before-carousel" class="carousel-container hidden">
-          <div id="carCarouselBefore" class="carousel slide" data-bs-ride="carousel">
-            <!-- Индикаторы -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
-              <button type="button" data-bs-target="#carCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
-            </div>
-          
-            <!-- Слайды -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='images/toyota/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='images/toyota/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
-              </div>
-            </div>
-          
-            <!-- Кнопки управления -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Назад</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carCarouselBefore" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Вперед</span>
-            </button>
-          </div>
-          
-          <!-- Информация об аукционе -->
-          <div class="bg-yellow-50 p-4 border-b border-yellow-200">
-            <h4 class="font-semibold text-yellow-700 mb-2">Інформація з аукціону</h4>
-            <ul class="text-sm space-y-1">
-              <li class="flex justify-between"><span>Пошкодженя:</span> <span class="font-medium">Передня частина</span></li>
-              <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">IAAI</span></li>
-              <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$5,450</span></li>
-            </ul>
-          </div>
         </div>
       </div>
       
-      <!-- Контент после покупки -->
-      <div id="after-content" class="p-6 overflow-y-auto max-h-[50vh]">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020</h3>
-        
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
-            <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2020</span></li>
-              <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">46,820 mil</span></li>
-              <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L, 176 к.с.</span></li>
-              <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
-              <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
-              <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Гібрид</span></li>
-            </ul>
+      <!-- Карусель для состояния до покупки (аукцион) -->
+      <div id="before-carousel" class="before-carousel carousel-container hidden">
+        <div id="kiacarCarouselBefore" class="carousel slide" data-bs-ride="carousel">
+          <!-- Индикаторы -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="14" aria-label="Слайд 15"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="15" aria-label="Слайд 16"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="16" aria-label="Слайд 17"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="17" aria-label="Слайд 18"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="18" aria-label="Слайд 19"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="19" aria-label="Слайд 20"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="20" aria-label="Слайд 21"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="21" aria-label="Слайд 22"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="22" aria-label="Слайд 23"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="23" aria-label="Слайд 24"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="24" aria-label="Слайд 25"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="25" aria-label="Слайд 26"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="26" aria-label="Слайд 27"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="27" aria-label="Слайд 28"></button>
+            <button type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide-to="28" aria-label="Слайд 29"></button>
           </div>
-          
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-semibold text-green-700 mb-2">Фінансові деталі</h4>
-            <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$5,450</span></li>
-              <li class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">$879</span></li>           
-              <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,297</span></li>
-              <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$3,521</span></li>
-              <li class="flex justify-between"><span>Послуги компанії:</span> <span class="font-medium">за тарифом</span></li>
-              <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$13,147</span></li>
-            </ul>
+        
+          <!-- Слайды -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ url_for('static', filename='images/kia/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/17.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/18.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/19.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/20.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/21.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/22.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/23.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/24.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/25.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/26.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/27.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/28.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/kia/29.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
           </div>
+        
+          <!-- Кнопки управления -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#kiacarCarouselBefore" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
         </div>
         
-        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-          <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
-          <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+        <!-- Информация об аукционе -->
+        <div class="bg-yellow-50 p-4 border-b border-yellow-200">
+          <h4 class="font-semibold text-yellow-700 mb-2">Інформація з аукціону</h4>
+          <ul class="text-sm space-y-1">
+            <li class="flex justify-between"><span>Пошкодженя:</span> <span class="font-medium">Задня права частина</span></li>
+            <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">IAAI</span></li>
+            <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$8,700</span></li>
+          </ul>
         </div>
-      </div>
-      
-      <!-- Контент до покупки -->
-      <div id="before-content" class="p-6 overflow-y-auto max-h-[50vh] hidden">
-        <h3 class="text-2xl font-bold text-green-700 mb-4">TOYOTA CAMRY 2020 (аукціон)</h3>
-        
-        <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
-          <h4 class="font-semibold text-green-700 mb-2">Примітка</h4>
-          <p class="text-sm">На цій вкладці відображаються фотографії та інформація з аукціону на момент покупки автомобіля. Характеристики та фінансові деталі стосуються поточного стану після всіх робіт і підготовки.</p>
-        </div>
-        
       </div>
     </div>
+    
+    <!-- Контент после покупки -->
+    <div id="after-content" class="p-6 overflow-y-auto max-h-[50vh]">
+      <h3 class="text-2xl font-bold text-green-700 mb-4">KIA SORENTO 2022</h3>
+      
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2022</span></li>
+            <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">4,256 mil</span></li>
+            <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L, 191 к.с.</span></li>
+            <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
+            <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
+            <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Бензин</span></li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Фінансові деталі</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$8,700</span></li>
+            <li class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">$1099</span></li>           
+            <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,866</span></li>
+            <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$4,272</span></li>
+            <li class="flex justify-between"><span>Послуги компанії:</span> <span class="font-medium">за тарифом</span></li>
+            <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$17,937</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+        <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
+        <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+      </div>
+    </div>
+    
+    <!-- Контент до покупки -->
+    <div id="before-content" class="p-6 overflow-y-auto max-h-[50vh] hidden">
+      <h3 class="text-2xl font-bold text-green-700 mb-4">KIA SORENTO 2022 (аукціон)</h3>
+      
+      <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
+        <h4 class="font-semibold text-green-700 mb-2">Примітка</h4>
+        <p class="text-sm">На цій вкладці відображаються фотографії та інформація з аукціону на момент покупки автомобіля. Характеристики та фінансові деталі стосуються поточного стану після всіх робіт і підготовки.</p>
+      </div>
+      
+    </div>
   </div>
+</div>
+  
+<!-- Modal for WV-->
+<div id="wv-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
+    <div class="relative">
+      <button onclick="closeModaly('wv-modal')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10 hover:bg-gray-100">
+        <i class="fas fa-times text-green-700 text-xl"></i>
+      </button>
+      
+      <!-- Вкладки для переключения между состояниями -->
+      <div class="flex border-b border-gray-200">
+        <button id="after-tab" class="after-tab tab-button active py-3 px-6 font-medium text-green-700 border-b-2 border-green-700">
+          Після купівлі
+        </button>
+        <button id="before-tab" class="before-tab tab-button py-3 px-6 font-medium text-gray-500 hover:text-green-700">
+          До купівлі (аукціон)
+        </button>
+      </div>
+      
+      <!-- Карусель для состояния после покупки -->
+      <div id="after-carousel" class="after-carousel carousel-container active">
+        <div id="wvcarCarouselAfter" class="carousel slide" data-bs-ride="carousel">
+          <!-- Индикаторы -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#wvcarCarouselAfter" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#wvcarCarouselAfter" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+          </div>
+        
+          <!-- Слайды -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ url_for('static', filename='images/wv/1.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/2.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry после покупки 2">
+            </div>
+          </div>
+        
+          <!-- Кнопки управления -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#wvcarCarouselAfter" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#wvcarCarouselAfter" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Карусель для состояния до покупки (аукцион) -->
+      <div id="before-carousel" class="before-carousel carousel-container hidden">
+        <div id="carCarouselBefore" class="carousel slide" data-bs-ride="carousel">
+          <!-- Индикаторы -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="4" aria-label="Слайд 5"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="5" aria-label="Слайд 6"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="6" aria-label="Слайд 7"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="7" aria-label="Слайд 8"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="8" aria-label="Слайд 9"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="9" aria-label="Слайд 10"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="10" aria-label="Слайд 11"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="11" aria-label="Слайд 12"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="12" aria-label="Слайд 13"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="13" aria-label="Слайд 14"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="14" aria-label="Слайд 15"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="15" aria-label="Слайд 16"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="16" aria-label="Слайд 17"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="17" aria-label="Слайд 18"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="18" aria-label="Слайд 19"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="19" aria-label="Слайд 20"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="20" aria-label="Слайд 21"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="21" aria-label="Слайд 22"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="22" aria-label="Слайд 23"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="23" aria-label="Слайд 24"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="24" aria-label="Слайд 25"></button>
+            <button type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide-to="25" aria-label="Слайд 26"></button>
+          </div>
+        
+          <!-- Слайды -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ url_for('static', filename='images/wv/3.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/4.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/5.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/6.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/7.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/8.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/9.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/10.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/11.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/12.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/13.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/14.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/15.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/16.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/17.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/18.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/19.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/20.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/21.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/22.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/23.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/24.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/25.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/26.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/27.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 3">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='images/wv/28.jpg') }}" class="d-block w-100 h-80 object-cover" alt="Toyota Camry на аукционі 1">
+            </div>
+          </div>
+        
+          <!-- Кнопки управления -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#wvcarCarouselBefore" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
+        </div>
+        
+        <!-- Информация об аукционе -->
+        <div class="bg-yellow-50 p-4 border-b border-yellow-200">
+          <h4 class="font-semibold text-yellow-700 mb-2">Інформація з аукціону</h4>
+          <ul class="text-sm space-y-1">
+            <li class="flex justify-between"><span>Пошкодженя:</span> <span class="font-medium">Бічна частина</span></li>
+            <li class="flex justify-between"><span>Аукціон:</span> <span class="font-medium">Copart</span></li>
+            <li class="flex justify-between"><span>Ціна на аукціоні:</span> <span class="font-medium">$3,400</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Контент после покупки -->
+    <div id="after-content" class="p-6 overflow-y-auto max-h-[50vh]">
+      <h3 class="text-2xl font-bold text-green-700 mb-4">VOLKSWAGEN TIGUAN 2020</h3>
+      
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2020</span></li>
+            <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">42,139 mil</span></li>
+            <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.0L, 184 к.с.</span></li>
+            <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
+            <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Передній</span></li>
+            <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Бензин</span></li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Фінансові деталі</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Ціна авто:</span> <span class="font-medium">$3,400</span></li>
+            <li class="flex justify-between"><span>Аукціонний збір:</span> <span class="font-medium">$734</span></li>           
+            <li class="flex justify-between"><span>Доставка:</span> <span class="font-medium">$3,028</span></li>
+            <li class="flex justify-between"><span>Розмитнення:</span> <span class="font-medium">$2,674</span></li>
+            <li class="flex justify-between"><span>Послуги компанії:</span> <span class="font-medium">за тарифом</span></li>
+            <li class="flex justify-between"><span class="font-bold">Разом:</span> <span class="font-bold text-green-700">$9,836</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+        <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
+        <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+      </div>
+    </div>
+    
+    <!-- Контент до покупки -->
+    <div id="before-content" class="p-6 overflow-y-auto max-h-[50vh] hidden">
+      <h3 class="text-2xl font-bold text-green-700 mb-4">VOLKSWAGEN TIGUAN 2020 (аукціон)</h3>
+      
+      <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
+        <h4 class="font-semibold text-green-700 mb-2">Примітка</h4>
+        <p class="text-sm">На цій вкладці відображаються фотографії та інформація з аукціону на момент покупки автомобіля. Характеристики та фінансові деталі стосуються поточного стану після всіх робіт і підготовки.</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 <!-- Каталог -->
 <section class="container mx-auto my-16 px-4">
@@ -1217,7 +1355,7 @@
         <div class="benefit-card bg-white rounded-xl shadow-lg p-6 flex flex-col">
             <div class="flex items-center mb-4">
                 <img src="{{ url_for('static', filename='images/img3.png') }}" alt="" class="w-16 h-16 object-contain mr-4">
-                <h5 class="text-lg font-semibold">5 років експертності</h5>
+                <h5 class="text-lg font-semibold">10 років експертності</h5>
             </div>
             <p class="text-gray-600">
                 З 2015 року компанія доставляє автомобілі з США "під ключ" від підбору авто до митного очищення, сертифікації ЄВРО 5 та постановки на облік.
@@ -1282,7 +1420,7 @@
                class="w-full h-full object-cover rounded-l-xl">
       </div>
       <div class="p-8">
-          <h2 class="text-2xl font-bold text-green-700 mb-4">На ринку більше 5 років</h2>
+          <h2 class="text-2xl font-bold text-green-700 mb-4">На ринку більше 10 років</h2>
           <div class="space-y-4 text-gray-700">
               <p>
                   Під час виконання всіх етапів клієнти отримують цілодобову підтримку 24/7 з детальною інформацією про процес придбання та доставки автомобілів з США та Канади.
@@ -1328,54 +1466,47 @@
     });
 </script>
 <script>
-    // Функция для переключения между вкладками
-    document.addEventListener('DOMContentLoaded', function() {
-      const afterTab = document.getElementById('after-tab');
-      const beforeTab = document.getElementById('before-tab');
-      const afterCarousel = document.getElementById('after-carousel');
-      const beforeCarousel = document.getElementById('before-carousel');
-      const afterContent = document.getElementById('after-content');
-      const beforeContent = document.getElementById('before-content');
-      
-      afterTab.addEventListener('click', function() {
-        // Обновляем вкладки
+  // Перемикання вкладок всередині будь-якої модалки
+  document.querySelectorAll('.modal').forEach(modal => {
+    const afterTab = modal.querySelector('.after-tab');
+    const beforeTab = modal.querySelector('.before-tab');
+    const afterCarousel = modal.querySelector('.after-carousel');
+    const beforeCarousel = modal.querySelector('.before-carousel');
+
+    if (afterTab && beforeTab && afterCarousel && beforeCarousel) {
+
+      // Клік "Після купівлі"
+      afterTab.addEventListener('click', () => {
+        // обновляем вкладки
         afterTab.classList.add('active', 'text-green-700', 'border-b-2', 'border-green-700');
         afterTab.classList.remove('text-gray-500');
         beforeTab.classList.remove('active', 'text-green-700', 'border-b-2', 'border-green-700');
         beforeTab.classList.add('text-gray-500');
-        
-        // Переключаем карусели
+
+        // показываем нужный блок
         afterCarousel.classList.remove('hidden');
         afterCarousel.classList.add('active');
         beforeCarousel.classList.add('hidden');
         beforeCarousel.classList.remove('active');
-        
-        // Переключаем контент
-        afterContent.classList.remove('hidden');
-        afterContent.classList.add('active');
-        beforeContent.classList.add('hidden');
-        beforeContent.classList.remove('active');
       });
-      
-      beforeTab.addEventListener('click', function() {
-        // Обновляем вкладки
+
+      // Клік "До купівлі"
+      beforeTab.addEventListener('click', () => {
+        // обновляем вкладки
         beforeTab.classList.add('active', 'text-yellow-700', 'border-b-2', 'border-yellow-700');
         beforeTab.classList.remove('text-gray-500');
         afterTab.classList.remove('active', 'text-green-700', 'border-b-2', 'border-green-700');
         afterTab.classList.add('text-gray-500');
-        
-        // Переключаем карусели
+
+        // показываем нужный блок
         beforeCarousel.classList.remove('hidden');
         beforeCarousel.classList.add('active');
         afterCarousel.classList.add('hidden');
         afterCarousel.classList.remove('active');
-        
-        // Переключаем контент
-        beforeContent.classList.remove('hidden');
-        beforeContent.classList.add('active');
-        afterContent.classList.add('hidden');
-        afterContent.classList.remove('active');
       });
-    });
-  </script>
+    }
+  });
+</script>
+
+  
 {% endblock %}
