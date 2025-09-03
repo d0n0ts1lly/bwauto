@@ -32,8 +32,16 @@ db = SQLAlchemy(app)
 API_TOKEN = 'D2_FNI5LjIsTXxUhTq1VgpMKURTd99rF'
 API_URL = 'https://api.tehnomir.com.ua/'
 
-TELEGRAM_TOKEN = 'your_bot_token'
-TELEGRAM_CHAT_ID = 'your_chat_id'
+TELEGRAM_BOT_TOKEN = '8357407082:AAHs_nYFp7kzGlebt6bYuYBnpuTqlqN3zRc'
+TELEGRAM_CHAT_ID = '1312342943'
+
+def send_telegram_message(text):
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": text
+    }
+    requests.post(url, json=payload)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -749,6 +757,9 @@ def checkout():
     CartItem.query.filter_by(user_id=user_id).delete()
 
     db.session.commit()
+
+    send_telegram_message("Є новий заказ(техномір) 🚀")
+
     flash("Замовлення оформлено успішно", "success")
     return redirect(url_for('cabinet'))
 
@@ -792,6 +803,8 @@ def checkout_new():
 
     NewCartItem.query.filter_by(user_id=user_id).delete()
     db.session.commit()
+
+    send_telegram_message("Є новий заказ(разборка) 🚀")
 
     flash("Замовлення з нової корзини оформлено успішно", "success")
     return redirect(url_for('cabinet'))

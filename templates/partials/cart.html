@@ -386,19 +386,52 @@
         </button>
         <div class="p-6">
             <h2 class="text-2xl font-bold mb-5 text-center text-green-700">Оформлення замовлення</h2>
-            <form method="post" action="{{ url_for('checkout') }}" class="space-y-4">
-                <input type="text" name="first_name" placeholder="Ім’я" required class="form-input">
-                <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
-                <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
-                <input type="text" name="city" placeholder="Місто" required class="form-input">
-                <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required class="form-input">
-                <button type="submit" class="btn btn-green w-full py-3 mt-2">
-                    Підтвердити замовлення
-                </button>
-            </form>
+            <form method="post" action="{{ url_for('checkout') }}" class="space-y-4" id="checkoutForm" novalidate>
+              <input type="text" name="first_name" placeholder="Ім’я" required minlength="2" 
+                     class="form-input" pattern="[А-Яа-яЇїІіЄєҐґA-Za-z\s]+">
+              
+              <input type="text" name="last_name" placeholder="Прізвище" required minlength="2" 
+                     class="form-input" pattern="[А-Яа-яЇїІіЄєҐґA-Za-z\s]+">
+              
+              <input type="tel" name="phone" placeholder="+380 ___ ___ ___" required id="phone" class="form-input">
+
+              
+              <input type="text" name="city" placeholder="Місто" required minlength="2" 
+                     class="form-input">
+              
+              <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required minlength="1" 
+                     class="form-input">
+          
+              <button type="submit" class="btn btn-green w-full py-3 mt-2">
+                  Підтвердити замовлення
+              </button>
+          </form>          
         </div>
     </div>
 </div>
+
+<script>
+  document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+      const form = event.target;
+      if (!form.checkValidity()) {
+          event.preventDefault(); // блокируем отправку
+          alert("Будь ласка, заповніть усі поля коректно!");
+      }
+  });
+  </script>
+  <script>
+    const phoneInput = document.getElementById("phone");
+    
+    phoneInput.addEventListener("input", function(e) {
+        let x = this.value.replace(/\D/g, ''); // убираем все, кроме цифр
+        if (!x.startsWith("380")) {
+            x = "380" + x.replace(/^380/, '');
+        }
+        if (x.length > 12) x = x.slice(0, 12); // макс длина
+        this.value = "+" + x;
+    });
+    </script>
+
 
 <div id="checkoutNewModal" class="fixed inset-0 modal-bg z-50 hidden flex items-center justify-center p-4">
     <div class="modal-content w-full max-w-md relative">
@@ -408,19 +441,51 @@
         </button>
         <div class="p-6">
             <h2 class="text-2xl font-bold mb-5 text-center text-green-700">Оформлення замовлення (Нова)</h2>
-            <form method="post" action="{{ url_for('checkout_new') }}" class="space-y-4">
-                <input type="text" name="first_name" placeholder="Ім’я" required class="form-input">
-                <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
-                <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
-                <input type="text" name="city" placeholder="Місто" required class="form-input">
-                <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required class="form-input">
-                <button type="submit" class="btn btn-green w-full py-3 mt-2">
-                    Підтвердити замовлення
-                </button>
-            </form>
+            <form method="post" action="{{ url_for('checkout_new') }}" class="space-y-4" id="checkoutNewForm" novalidate>
+              <input type="text" name="first_name" placeholder="Ім’я" required minlength="2" 
+                     class="form-input" pattern="[А-Яа-яЇїІіЄєҐґA-Za-z\s]+">
+              
+              <input type="text" name="last_name" placeholder="Прізвище" required minlength="2" 
+                     class="form-input" pattern="[А-Яа-яЇїІіЄєҐґA-Za-z\s]+">
+              
+              <input type="tel" name="phone" placeholder="+380 ___ ___ ___" required id="phone1" class="form-input">
+
+              
+              <input type="text" name="city" placeholder="Місто" required minlength="2" 
+                     class="form-input">
+              
+              <input type="text" name="np_office" placeholder="Відділення Нової Пошти" required minlength="1" 
+                     class="form-input">
+          
+              <button type="submit" class="btn btn-green w-full py-3 mt-2">
+                  Підтвердити замовлення
+              </button>
+          </form>          
         </div>
     </div>
 </div>
+
+<script>
+  document.getElementById("checkoutNewForm").addEventListener("submit", function(event) {
+      const form = event.target;
+      if (!form.checkValidity()) {
+          event.preventDefault(); // блокируем отправку
+          alert("Будь ласка, заповніть усі поля коректно!");
+      }
+  });
+  </script>
+<script>
+  const phoneInput1 = document.getElementById("phone1");
+  
+  phoneInput1.addEventListener("input", function(e) {
+      let x = this.value.replace(/\D/g, ''); // убираем все, кроме цифр
+      if (!x.startsWith("380")) {
+          x = "380" + x.replace(/^380/, '');
+      }
+      if (x.length > 12) x = x.slice(0, 12); // макс длина
+      this.value = "+" + x;
+  });
+  </script>
 
 <script>
     // Закрытие модальных окон при клике на фон
