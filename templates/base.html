@@ -123,9 +123,26 @@
                     <!-- Выпадающее меню -->
                     <div id="carsDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
                       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="carsDropdownButton">
-                        <a href="/cars" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з США</a>
-                        <a href="/error" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з Європи</a>
-                        <a href="/error" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Авто з Китаю</a>
+                        <a href="/cars" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/usa-flag-color.png') }}" alt="USA" class="w-7 h-5 rounded-sm">
+                            Авто з США
+                        </a>
+                        <a href="/error" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/europa-flag-color.webp') }}" alt="Korea" class="w-7 h-5 rounded-sm">
+                            Авто з Європи
+                        </a>  
+                        <a href="/error" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/canada-flag-color.jpg') }}" alt="Canada" class="w-7 h-5 rounded-sm">
+                            Авто з Канади
+                        </a>                   
+                        <a href="/error" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/korea-flag-color.webp') }}" alt="Korea" class="w-7 h-5 rounded-sm">
+                            Авто з Кореї
+                        </a>  
+                        <a href="/error" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/china-flag-color.png') }}" alt="Korea" class="w-7 h-5 rounded-sm">
+                            Авто з Китаю
+                        </a>  
                       </div>
                     </div>
                 </div>
@@ -142,12 +159,21 @@
 
                     <!-- Выпадающее меню -->
                     <div id="calcDropdownMenu" class="origin-top-right absolute right-0 mt-1 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10 overflow-hidden dropdown-enter">
-                      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="calcDropdownButton">
-                        <a href="/calculator-usa" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">США</a>
-                        <a href="/calculator-canada" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Канада</a>
-                        <a href="/calculator-korea" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">Корея</a>
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="calcDropdownButton">
+                          <a href="/calculator-usa" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/usa-flag-color.png') }}" alt="USA" class="w-7 h-5 rounded-sm">
+                            США
+                          </a>
+                          <a href="/calculator-canada" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/canada-flag-color.jpg') }}" alt="Canada" class="w-7 h-5 rounded-sm">
+                            Канада
+                          </a>                   
+                          <a href="/calculator-korea" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition" role="menuitem">
+                            <img src="{{ url_for('static', filename='images/img/korea-flag-color.webp') }}" alt="Korea" class="w-7 h-5 rounded-sm">
+                            Корея
+                          </a>                    
+                        </div>
                       </div>
-                    </div>
                 </div>
 
                 <div class="flex items-center gap-3 p-3 rounded-lg lg:bg-transparent bg-gray-50">

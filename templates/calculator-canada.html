@@ -595,9 +595,9 @@
                         </td>
                       </tr>
                       <tr class="border-b border-green-100">
-                        <td class="py-3 text-sm text-gray-700">Сертифікація:</td>
+                        <td class="py-3 text-sm text-gray-700">Послуги компанії:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkCert()">$<span class="usa-calc-form__certification">{{ cert }}</span></span>
+                          <span v-if="checkServices()">$<span class="usa-calc-form__certification">{{ services }}</span></span>
                         </td>
                       </tr>
                     </table>
@@ -606,10 +606,16 @@
             
                 <div class="mt-6">
                   <table class="w-full">
+                    <tr class="rounded-lg">
+                      <td class="pt-4 pb-2 font-medium text-green-800">Ціна за авто зі США в Україну:</td>
+                      <td class="pt-4 pb-2 text-right font-bold text-green-800 text-lg results-table__cell">
+                        <span v-if="checkCalc()">$<b class="usa-calc-form__total">{{  totalSum - cert - register }}</b></span>
+                      </td>
+                    </tr>
                     <tr class="border-t border-green-200">
-                      <td class="pt-4 pb-2 text-sm text-gray-700">Послуги компанії:</td>
+                      <td class="pt-4 pb-2 text-sm text-gray-700">Сертифікація:</td>
                       <td class="pt-4 pb-2 text-right font-medium text-gray-900">
-                        <span v-if="checkServices()">$<span class="usa-calc-form__services">{{ services }}</span></span>
+                        <span v-if="checkCert()">$<span class="usa-calc-form__services">{{ cert }}</span></span>
                       </td>
                     </tr>
                     <tr class="border-t border-green-200">
