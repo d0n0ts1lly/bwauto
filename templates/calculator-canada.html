@@ -526,19 +526,19 @@
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Доставка до порту:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkPortDelivery()">$<span class="usa-calc-form__port-delivery">{{ portDelivery }}</span></span>
+                          <span v-if="checkPortDelivery()">$<span class="usa-calc-form__port-delivery">{{ portDelivery+150 }}</span></span>
                         </td>
                       </tr>
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Ціна морської переправи:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkSeaDeliveryPrice()">$<span class="usa-calc-form__sea-delivery">{{ seaDeliveryPrice }}</span></span>
+                          <span v-if="checkSeaDeliveryPrice()">$<span class="usa-calc-form__sea-delivery">{{ seaDeliveryPrice+250 }}</span></span>
                         </td>
                       </tr>
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Комісія Канади:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkSeaDeliveryPrice()">$<span class="usa-calc-form__sea-delivery">{{ additionalCarTax }}</span></span>
+                          <span v-if="checkSeaDeliveryPrice()">$<span class="usa-calc-form__sea-delivery">{{ additionalCarTax+100 }}</span></span>
                         </td>
                       </tr>
                       <tr v-if="isSublot" class="border-b border-green-100">
@@ -573,7 +573,7 @@
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Брокер:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkBroker()">$<span class="usa-calc-form__customs-summ">{{ broker }}</span></span>
+                          <span v-if="checkBroker()">$<span class="usa-calc-form__customs-summ">{{ broker+70 }}</span></span>
                         </td>
                       </tr>
                       <tr v-if="dangerCargo > 0" class="border-b border-green-100">
@@ -585,19 +585,19 @@
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Експедиція:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkExpedit()">$<span class="usa-calc-form__broker">{{ expedit }}</span></span>
+                          <span v-if="checkExpedit()">$<span class="usa-calc-form__broker">{{ expedit+200 }}</span></span>
                         </td>
                       </tr>
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Доставка до міста Львів:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkKyivDelivery()">$<span class="usa-calc-form__kyiv">{{ kyivDelivery }}</span></span>
+                          <span v-if="checkKyivDelivery()">$<span class="usa-calc-form__kyiv">{{ kyivDelivery+125 }}</span></span>
                         </td>
                       </tr>
                       <tr class="border-b border-green-100">
                         <td class="py-3 text-sm text-gray-700">Послуги компанії:</td>
                         <td class="py-3 text-right font-medium text-gray-900">
-                          <span v-if="checkServices()">$<span class="usa-calc-form__certification">{{ services }}</span></span>
+                          <span v-if="checkServices()">$<span class="usa-calc-form__certification">{{ services+600 }}</span></span>
                         </td>
                       </tr>
                     </table>
