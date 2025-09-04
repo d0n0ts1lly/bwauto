@@ -99,7 +99,7 @@
                 Привеземо авто з будь-якої точки світу!
             </h1>
             <p class="mt-4 text-lg md:text-xl font-light opacity-90">
-                Авто під ключ з США, Європи, Китаю та Південної Кореї
+                Авто під ключ з США, Канади, Європи, Китаю та Південної Кореї
             </p>
             <a href="{{ url_for('cars') }}"
                class="mt-6 inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition transform duration-300">
@@ -858,15 +858,15 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- 1 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="https://cs.copart.com/v1/AUTH_svc.pdoc00001/ids-c-prod-lpp/0825/260d332f82fd4fe79daec0c6a8c0a250_ful.jpg" alt="BMW X5" class="w-full h-64 object-cover">
+            <img src="{{ url_for('static', filename='images/mazda/1.jpg') }}" alt="Mazda CX-30" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
-                <h5 class="text-xl font-bold text-gray-900">BMW X5</h5>
+                <h5 class="text-xl font-bold text-gray-900">Mazda CX-30</h5>
                 <div class="flex flex-wrap gap-2">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2020</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3.0L</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">30,000 км</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2021</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2.5L</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">21,217 км</span>
                 </div>
-                <a href="#" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <a onclick="openModaly('mazda-modal')" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
                     Детальніше
                 </a>
             </div>
@@ -874,15 +874,15 @@
 
         <!-- 2 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Mercedes-Benz_GLE_350_d_4MATIC_AMG_Line_%28V_167%29_–_h_18042021.jpg" alt="Mercedes-Benz GLE" class="w-full h-64 object-cover">
+            <img src="{{ url_for('static', filename='images/teslx/1.jpg') }}" alt="Tesla Model X" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
-                <h5 class="text-xl font-bold text-gray-900">Mercedes-Benz GLE</h5>
+                <h5 class="text-xl font-bold text-gray-900">Tesla Model X</h5>
                 <div class="flex flex-wrap gap-2">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2021</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2.0L</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">25,000 км</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2016</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">90kWh</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">85,458 км</span>
                 </div>
-                <a href="#" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <a onclick="openModaly('teslx-modal')" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
                     Детальніше
                 </a>
             </div>
@@ -890,21 +890,21 @@
 
         <!-- 3 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl">
-            <img src="https://i.infocar.ua/i/2/5949/114108/1920x.jpg" alt="Audi Q7" class="w-full h-64 object-cover">
+            <img src="{{ url_for('static', filename='images/tesla3/1.jpg') }}" alt="Tesla 3" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col gap-3 flex-1">
-                <h5 class="text-xl font-bold text-gray-900">Audi Q7</h5>
+                <h5 class="text-xl font-bold text-gray-900">Tesla Model 3</h5>
                 <div class="flex flex-wrap gap-2">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2019</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3.0L</span>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">40,000 км</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">2020</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">75kWh</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">60,000 км</span>
                 </div>
-                <a href="#" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
+                <a onclick="openModaly('tesl3-modal')" class="mt-auto inline-block bg-green-600 text-white text-center py-2 rounded-lg hover:bg-green-700 transition font-medium">
                   Детальніше
                 </a>
             </div>
         </div>
     </div>
-</section>
+  </section>
 
 <!-- Тарифы -->
 <section class="container mx-auto my-16 px-4">
@@ -937,7 +937,7 @@
                     <span>Розмитнення авто</span>
                 </li>
             </ul>
-            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+            <a href="#" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
                 ВИБРАТИ АВТО
             </a>
         </div>
@@ -978,7 +978,7 @@
                     <span>Розмитнення авто</span>
                 </li>
             </ul>
-            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+            <a href="#" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
                 ВИБРАТИ АВТО
             </a>
         </div>
@@ -1037,7 +1037,7 @@
                     <span>Постановка на облік</span>
                 </li>
             </ul>
-            <a href="{{ url_for('cars') }}" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
+            <a href="#" class="mt-auto inline-block bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-medium w-full">
                 ВИБРАТИ АВТО
             </a>
         </div>
@@ -1176,6 +1176,210 @@
       </div>
   </div>
 </section>
+
+<!-- Modal Mazda -->
+<div id="mazda-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col">
+    <div class="relative">
+      <button onclick="closeModaly('mazda-modal')" 
+              class="absolute top-3 right-3 bg-white w-8 h-8 flex items-center justify-center rounded-full shadow-md z-10 hover:bg-gray-100">
+        <i class="fas fa-times text-green-700 text-lg">&#x2717</i>
+      </button>
+
+      <!-- Карусель Mazda -->
+      <div class="carousel-container active">
+        <div id="mazdaCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            {% for i in range(0, 41) %}
+              <button type="button" data-bs-target="#mazdaCarousel" data-bs-slide-to="{{ i }}" 
+                      class="{% if i == 0 %}active{% endif %}" 
+                      aria-current="{% if i == 0 %}true{% endif %}" aria-label="Слайд {{ i+1 }}"></button>
+            {% endfor %}
+          </div>
+
+          <div class="carousel-inner">
+            {% for i in range(1, 42) %}
+            <div class="carousel-item {% if i == 1 %}active{% endif %}">
+              <div class="h-64 sm:h-80 md:h-96 w-full flex items-center justify-center bg-gray-100">
+                <img src="{{ url_for('static', filename='images/mazda/' ~ i ~ '.jpg') }}" 
+                     class="w-full h-full object-contain" alt="Mazda {{ i }}">
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#mazdaCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#mazdaCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Контент Mazda -->
+    <div class="p-4 sm:p-6 overflow-y-auto flex-1">
+      <h3 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">MAZDA CX-30 2021</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2021</span></li>
+            <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">21,217 km</span></li>
+            <li class="flex justify-between"><span>Двигун:</span> <span class="font-medium">2.5L</span></li>
+            <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
+            <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Передній</span></li>
+            <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Бензин</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
+          <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tesla -->
+<div id="teslx-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col">
+    <div class="relative">
+      <button onclick="closeModaly('teslx-modal')" 
+              class="absolute top-3 right-3 bg-white w-8 h-8 flex items-center justify-center rounded-full shadow-md z-10 hover:bg-gray-100">
+        <i class="fas fa-times text-green-700 text-lg">&#x2717</i>
+      </button>
+
+      <!-- Карусель Tesla -->
+      <div class="carousel-container active">
+        <div id="teslaCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            {% for i in range(0, 16) %}
+              <button type="button" data-bs-target="#teslaCarousel" data-bs-slide-to="{{ i }}" 
+                      class="{% if i == 0 %}active{% endif %}" 
+                      aria-current="{% if i == 0 %}true{% endif %}" aria-label="Слайд {{ i+1 }}"></button>
+            {% endfor %}
+          </div>
+
+          <div class="carousel-inner">
+            {% for i in range(1, 18) %}
+            <div class="carousel-item {% if i == 1 %}active{% endif %}">
+              <div class="h-64 sm:h-80 md:h-96 w-full flex items-center justify-center bg-gray-100">
+                <img src="{{ url_for('static', filename='images/teslx/' ~ i ~ '.jpg') }}" 
+                     class="w-full h-full object-contain" alt="Tesla X {{ i }}">
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#teslaCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#teslaCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Контент Tesla -->
+    <div class="p-4 sm:p-6 overflow-y-auto flex-1">
+      <h3 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">TESLA MODEL X 2016</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2016</span></li>
+            <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">85,458 km</span></li>
+            <li class="flex justify-between"><span>Потужність батареї:</span> <span class="font-medium">90kWh, 772 к.с.</span></li>
+            <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
+            <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Повний</span></li>
+            <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Електро</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
+          <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tesla 3-->
+<div id="tesl3-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 opacity-0 pointer-events-none transition-opacity">
+  <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col">
+    <div class="relative">
+      <button onclick="closeModaly('tesl3-modal')" 
+              class="absolute top-3 right-3 bg-white w-8 h-8 flex items-center justify-center rounded-full shadow-md z-10 hover:bg-gray-100">
+        <i class="fas fa-times text-green-700 text-lg">&#x2717</i>
+      </button>
+
+      <!-- Карусель Tesla -->
+      <div class="carousel-container active">
+        <div id="tesla3Carousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            {% for i in range(0, 13) %}
+              <button type="button" data-bs-target="#tesla3Carousel" data-bs-slide-to="{{ i }}" 
+                      class="{% if i == 0 %}active{% endif %}" 
+                      aria-current="{% if i == 0 %}true{% endif %}" aria-label="Слайд {{ i+1 }}"></button>
+            {% endfor %}
+          </div>
+
+          <div class="carousel-inner">
+            {% for i in range(1, 13) %}
+            <div class="carousel-item {% if i == 1 %}active{% endif %}">
+              <div class="h-64 sm:h-80 md:h-96 w-full flex items-center justify-center bg-gray-100">
+                <img src="{{ url_for('static', filename='images/tesla3/' ~ i ~ '.jpg') }}" 
+                     class="w-full h-full object-contain" alt="Tesla X {{ i }}">
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#tesla3Carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Назад</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#tesla3Carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Вперед</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Контент Tesla 3-->
+    <div class="p-4 sm:p-6 overflow-y-auto flex-1">
+      <h3 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">TESLA MODEL 3 2020</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-700 mb-2">Основні характеристики</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex justify-between"><span>Рік випуску:</span> <span class="font-medium">2020</span></li>
+            <li class="flex justify-between"><span>Пробіг:</span> <span class="font-medium">60,000 km</span></li>
+            <li class="flex justify-between"><span>Потужність батареї:</span> <span class="font-medium">75kWh</span></li>
+            <li class="flex justify-between"><span>Коробка передач:</span> <span class="font-medium">Автоматична</span></li>
+            <li class="flex justify-between"><span>Привід:</span> <span class="font-medium">Задній</span></li>
+            <li class="flex justify-between"><span>Паливо:</span> <span class="font-medium">Електро</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h4 class="font-semibold text-green-700 mb-2">Стан автомобіля</h4>
+          <p class="text-sm">Автомобіль ідеальний технічний стан, без ДТП. Повна комплектація, шкіряний салон, панорамний дах, камера заднього виду, датчики паркування, круїз-контроль.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
     function openModaly(modalId) {

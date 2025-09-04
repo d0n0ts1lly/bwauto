@@ -368,19 +368,19 @@
                   <tr class="border-b border-green-100">
                     <td class="py-3 text-sm text-gray-700">Доставка до порту:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ portDelivery }}</span></span>
+                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ portDelivery+150 }}</span></span>
                     </td>
                   </tr>
                   <tr class="border-b border-green-100">
-                    <td class="py-3 text-sm text-gray-700">Доставка Ro-Ro:</td>
+                    <td class="py-3 text-sm text-gray-700">Доставка у Чорноморськ:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ roDelivery }}</span></span>
+                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ roDelivery + 100 }}</span></span>
                     </td>
                   </tr>
                   <tr class="border-b border-green-100">
                     <td class="py-3 text-sm text-gray-700">Корея Fee:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ koreaFee }}</span></span>
+                      <span v-if="checkCalc()">$<span class="usa-calc-form__port-delivery">{{ koreaFee + 100}}</span></span>
                     </td>
                   </tr>
                 </table>
@@ -408,25 +408,19 @@
                   <tr class="border-b border-green-100">
                     <td class="py-3 text-sm text-gray-700">Брокер:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkBroker()">$<span class="usa-calc-form__customs-summ">{{ broker }}</span></span>
+                      <span v-if="checkBroker()">$<span class="usa-calc-form__customs-summ">{{ broker+150 }}</span></span>
                     </td>
                   </tr>
                   <tr class="border-b border-green-100">
                     <td class="py-3 text-sm text-gray-700">Експедиція:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkExpedit()">$<span class="usa-calc-form__broker">{{ expedit }}</span></span>
-                    </td>
-                  </tr>
-                  <tr class="border-b border-green-100">
-                    <td class="py-3 text-sm text-gray-700">Доставка до міста Львів:</td>
-                    <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkKyivDelivery()">$<span class="usa-calc-form__kyiv">{{ kyivDelivery }}</span></span>
+                      <span v-if="checkExpedit()">$<span class="usa-calc-form__broker">{{ expedit+200 }}</span></span>
                     </td>
                   </tr>
                   <tr class="border-b border-green-100">
                     <td class="py-3 text-sm text-gray-700">Послуги компанії:</td>
                     <td class="py-3 text-right font-medium text-gray-900">
-                      <span v-if="checkServices()">$<span class="usa-calc-form__certification">{{ services }}</span></span>
+                      <span v-if="checkServices()">$<span class="usa-calc-form__certification">{{ services+600 }}</span></span>
                     </td>
                   </tr>
                 </table>
@@ -436,7 +430,7 @@
                   <tr>
                     <td class="pt-4 pb-2 font-medium text-green-800">Ціна за авто з Кореї під ключ:</td>
                     <td class="pt-4 pb-2 text-right font-bold text-green-800 text-lg results-table__cell">
-                      <span v-if="checkCalc()">$<b class="usa-calc-form__total">{{ totalSum-cert-register }}</b></span>
+                      <span v-if="checkCalc()">$<b class="usa-calc-form__total">{{ totalSum-cert-register-kyivDelivery+1300 }}</b></span>
                     </td>
                   </tr>
                   <tr class="border-t border-green-200">
@@ -454,7 +448,7 @@
                   <tr>
                     <td class="pt-4 pb-2 font-medium text-green-800">Ціна за авто з Кореї під ключ:</td>
                     <td class="pt-4 pb-2 text-right font-bold text-green-800 text-lg results-table__cell">
-                      <span v-if="checkCalc()">$<b class="usa-calc-form__total">{{ totalSum }}</b></span>
+                      <span v-if="checkCalc()">$<b class="usa-calc-form__total">{{ totalSum-kyivDelivery+1300 }}</b></span>
                     </td>
                   </tr>
                 </table>
